@@ -14,7 +14,7 @@ export default async function Home() {
       <SearchBar/>
       <div className="asd">
         {movies.map(movie => (
-          <p key={movie.id}>{movie.title}</p>
+          <p key={movie.id}>{movie.name}</p>
         ))}
       </div>
     </div>
