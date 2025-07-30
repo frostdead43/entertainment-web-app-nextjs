@@ -1,0 +1,16 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  padding-block: 20px;
+  padding-inline: 16px;
+  background-color: rgba(22, 29, 47, 1);
+  align-items: center;
+
+
+}
+.flex {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  cursor: pointer;
+}
