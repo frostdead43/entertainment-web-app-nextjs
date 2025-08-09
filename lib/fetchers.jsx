@@ -9,9 +9,9 @@ export async function fetchPopularMovies() {
   return data.results;
 }
 
-export async function fetchPopularTv() {
+export async function fetchPopularTv(page = 1) {
   const res = await fetch(
-    `https://api.themoviedb.org/3/tv/popular?api_key=${process.env.TMDB_API_KEY}`
+    `https://api.themoviedb.org/3/tv/popular?api_key=${process.env.TMDB_API_KEY}&page=${page}`
   );
 
   const tvdata = await res.json();

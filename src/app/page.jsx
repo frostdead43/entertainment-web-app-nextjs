@@ -6,8 +6,24 @@ import styles from "../../styles/page.css";
 import { fetchPopularMovies,fetchPopularTv } from '../../lib/fetchers'
 import Navbar from "../../components/Navbar";
 import SearchBar from "../../components/SearchBar";
+// import { useEffect, useState } from "react";
 
 export default async function Home() {
+  // const [page,setPage] = useState(1);
+  // const [shows, setShows] = useState([]);
+
+  // useEffect(() => {
+  //   fetchPopularTv(page).then(data => {
+  //     if (page === 1) {
+  //       setShows(data.results);
+
+  //     } else {
+  //       setShows(prev => [...prev, ...data.results])
+  //     }
+  //   }) 
+  //    .catch(console.error);
+  //   }, [page])
+
   const movies = await fetchPopularMovies();
   const tv = await fetchPopularTv();
   const popular = [...movies, ...tv];
