@@ -1,0 +1,66 @@
+.auth-page {
+  background: #161d2f;
+  padding: 24px;
+  input {
+    color: #fff;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 100%;
+    letter-spacing: 0px;
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid #5a698f;
+    outline: none;
+    padding-bottom: 17px;
+    margin-bottom: 24px;
+    width: 100%;
+  }
+  input::placeholder {
+    color: rgb(255, 255, 255, 0.5);
+  }
+  h2 {
+    font-weight: 400;
+    font-size: 32px;
+    line-height: 100%;
+    letter-spacing: -0.5px;
+    color: #fff;
+    margin-bottom: 40px;
+  }
+  button {
+    background: #fc4747;
+    border-radius: 6px;
+    color: #fff;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 100%;
+    letter-spacing: 0px;
+    text-align: center;
+    width: 100%;
+    padding-block: 15px;
+    border: none;
+    margin-block: 40px 24px;
+  }
+  p {
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 100%;
+    letter-spacing: 0px;
+    color: #fff;
+    text-align: center;
+    a {
+      font-weight: 400;
+      font-size: 15px;
+      line-height: 100%;
+      letter-spacing: 0px;
+      color: #fc4747;
+      margin-left: 9px;
+    }
+  }
+}
+
+.auth-page-app-icon {
+  width: 32px;
+  height: 25px;
+  margin-inline: auto;
+  margin-block: 48px 58px;
+}
