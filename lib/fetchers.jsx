@@ -1,7 +1,6 @@
-"use server"
-export async function fetchPopularMovies() {
+export async function fetchPopularMovies(page = 1) {
   const res = await fetch(
-    `https://api.themoviedb.org/3/movie/popular?api_key=${process.env.TMDB_API_KEY}`
+    `https://api.themoviedb.org/3/movie/popular?api_key=${process.env.TMDB_API_KEY}&page=${page}`
   );
 
   const data = await res.json();
