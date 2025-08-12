@@ -47,7 +47,7 @@ export  default function Content({set, page}){
           ))}
           </div>
            <button onClick={goToNextPage}>Next Page</button>
-           <button onClick={returnPreviousPage}>Previous Page</button>
+           <button className={page === 1 ? "display-none" : "" } onClick={returnPreviousPage}>Previous Page</button>
         </div>
       </div>
     )
