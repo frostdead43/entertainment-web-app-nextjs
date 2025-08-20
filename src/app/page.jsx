@@ -7,7 +7,8 @@ import Content from "../../components/Content";
 
 
 export default async function Home({searchParams}) {
-  const page = parseInt(searchParams.page) || 1;
+  const param = await searchParams;
+  const page =  parseInt(param.page) || 1
 
     const movies = await fetchPopularMovies(page);
     const tv = await fetchPopularTv(page);
