@@ -1,16 +1,27 @@
-"use client";
 import Link from "next/link";
 import "../../../../styles/auth.css";
+import { loginAction } from "./action";
+import { auth } from "../../../../lib/auth";
+import { headers } from "next/headers";
+import { redirect } from "next/navigation";
 
 
-export default function Page() {
+
+export default async function Page() {
+  const session = await auth.api.getSession({
+    headers: await headers(),
+  });
+  if(session){
+    return redirect("/");
+  }
+  
 
   return (
     <>
       <img src="/images/icons/app-icon.svg" className="auth-page-app-icon" alt="" />
       <div className="auth-page">
         <h2>Login</h2>
-        <form>
+        <form action={loginAction}>
           <div>
             <input type="email" name="email" placeholder="Email address" />
             <input type="password" name="password" placeholder="Password" />
