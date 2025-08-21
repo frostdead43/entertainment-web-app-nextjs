@@ -1,4 +1,5 @@
 "use server";
+import { redirect } from "next/navigation";
 import { auth } from "../../../../lib/auth";
 
 export async function registerAction(formData) {
@@ -16,6 +17,9 @@ export async function registerAction(formData) {
           }
       })
     }catch (e) {
+      
       console.log(e.message);
+      return;
     }
+     return redirect("/auth/login");
 }

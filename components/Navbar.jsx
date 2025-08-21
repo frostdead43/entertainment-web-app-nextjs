@@ -1,5 +1,4 @@
 import styles from "../styles/header.css"
-
 export default function Navbar() {
   return(
   <div className="header">

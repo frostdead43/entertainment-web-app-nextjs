@@ -16,7 +16,7 @@ export default async function Page() {
             <input type="password" name="password" placeholder="Password" />
             <input type="password" name="repeat" placeholder="Repeat Password" />
           </div>
-          <button type="submit">Create an account</button>
+          <Link href={"/auth/login"}><button type="submit">Create an account</button></Link>
           <p>Do you have Account? <Link href="/auth/login">Login</Link></p>
         </form>
       </div>
