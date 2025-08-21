@@ -5,12 +5,42 @@
   padding-inline: 16px;
   background-color: rgba(22, 29, 47, 1);
   align-items: center;
-
-
 }
 .flex {
   display: flex;
   align-items: center;
   gap: 24px;
   cursor: pointer;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 10px 20px;
+  background-color: rgba(22, 29, 47, 1);
+  border-radius: 8px;
+  position: absolute;
+  top: 33px; /* avatar ikonun altına gelsin */
+  right: 0;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  z-index: 1000;
+  opacity: 0;
+  transform: translateY(-10px);
+  pointer-events: none;
+  transition: all 0.3s ease;
+}
+
+ul.show {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+ul li {
+  padding: 10px 0;
+}
+
+ul li a {
+  text-decoration: none;
+  color: #fff;
 }
