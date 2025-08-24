@@ -15,7 +15,7 @@ datasource db {
 }
 
 model User {
-  id            String    @id
+  id            String     @id
   name          String
   email         String
   emailVerified Boolean
@@ -24,6 +24,8 @@ model User {
   updatedAt     DateTime
   sessions      Session[]
   accounts      Account[]
+  favorites     Favorite[]
+  comments      Comment[]
 
   @@unique([email])
   @@map("user")
@@ -72,4 +74,32 @@ model Verification {
   updatedAt  DateTime?
 
   @@map("verification")
+}
+
+model Movie {
+  id        String     @id
+  title     String
+  posterUrl String?
+  favorites Favorite[]
+  comments  Comment[]
+}
+
+model Favorite {
+  id      String @id @default(cuid())
+  userId  String
+  movieId String
+
+  user  User  @relation(fields: [userId], references: [id])
+  movie Movie @relation(fields: [movieId], references: [id])
+}
+
+model Comment {
+  id        String   @id @default(cuid())
+  text      String
+  userId    String
+  movieId   String
+  createdAt DateTime @default(now())
+
+  user  User  @relation(fields: [userId], references: [id])
+  movie Movie @relation(fields: [movieId], references: [id])
 }
