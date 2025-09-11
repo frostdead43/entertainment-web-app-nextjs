@@ -29,25 +29,10 @@ export type Session = $Result.DefaultSelection<Prisma.$SessionPayload>
  */
 export type Account = $Result.DefaultSelection<Prisma.$AccountPayload>
 /**
- * Model Verification
- * 
- */
-export type Verification = $Result.DefaultSelection<Prisma.$VerificationPayload>
-/**
  * Model Movie
  * 
  */
 export type Movie = $Result.DefaultSelection<Prisma.$MoviePayload>
-/**
- * Model Favorite
- * 
- */
-export type Favorite = $Result.DefaultSelection<Prisma.$FavoritePayload>
-/**
- * Model Comment
- * 
- */
-export type Comment = $Result.DefaultSelection<Prisma.$CommentPayload>
 
 /**
  * ##  Prisma Client ʲˢ
@@ -198,16 +183,6 @@ export class PrismaClient<
   get account(): Prisma.AccountDelegate<ExtArgs, ClientOptions>;
 
   /**
-   * `prisma.verification`: Exposes CRUD operations for the **Verification** model.
-    * Example usage:
-    * ```ts
-    * // Fetch zero or more Verifications
-    * const verifications = await prisma.verification.findMany()
-    * ```
-    */
-  get verification(): Prisma.VerificationDelegate<ExtArgs, ClientOptions>;
-
-  /**
    * `prisma.movie`: Exposes CRUD operations for the **Movie** model.
     * Example usage:
     * ```ts
@@ -216,26 +191,6 @@ export class PrismaClient<
     * ```
     */
   get movie(): Prisma.MovieDelegate<ExtArgs, ClientOptions>;
-
-  /**
-   * `prisma.favorite`: Exposes CRUD operations for the **Favorite** model.
-    * Example usage:
-    * ```ts
-    * // Fetch zero or more Favorites
-    * const favorites = await prisma.favorite.findMany()
-    * ```
-    */
-  get favorite(): Prisma.FavoriteDelegate<ExtArgs, ClientOptions>;
-
-  /**
-   * `prisma.comment`: Exposes CRUD operations for the **Comment** model.
-    * Example usage:
-    * ```ts
-    * // Fetch zero or more Comments
-    * const comments = await prisma.comment.findMany()
-    * ```
-    */
-  get comment(): Prisma.CommentDelegate<ExtArgs, ClientOptions>;
 }
 
 export namespace Prisma {
@@ -294,8 +249,8 @@ export namespace Prisma {
   export import Exact = $Public.Exact
 
   /**
-   * Prisma Client JS version: 6.14.0
-   * Query Engine version: 717184b7b35ea05dfa71a3236b7af656013e1e49
+   * Prisma Client JS version: 6.15.0
+   * Query Engine version: 85179d7826409ee107a6ba334b5e305ae3fba9fb
    */
   export type PrismaVersion = {
     client: string
@@ -679,10 +634,7 @@ export namespace Prisma {
     User: 'User',
     Session: 'Session',
     Account: 'Account',
-    Verification: 'Verification',
-    Movie: 'Movie',
-    Favorite: 'Favorite',
-    Comment: 'Comment'
+    Movie: 'Movie'
   };
 
   export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -701,7 +653,7 @@ export namespace Prisma {
       omit: GlobalOmitOptions
     }
     meta: {
-      modelProps: "user" | "session" | "account" | "verification" | "movie" | "favorite" | "comment"
+      modelProps: "user" | "session" | "account" | "movie"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
@@ -927,80 +879,6 @@ export namespace Prisma {
           }
         }
       }
-      Verification: {
-        payload: Prisma.$VerificationPayload<ExtArgs>
-        fields: Prisma.VerificationFieldRefs
-        operations: {
-          findUnique: {
-            args: Prisma.VerificationFindUniqueArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$VerificationPayload> | null
-          }
-          findUniqueOrThrow: {
-            args: Prisma.VerificationFindUniqueOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$VerificationPayload>
-          }
-          findFirst: {
-            args: Prisma.VerificationFindFirstArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$VerificationPayload> | null
-          }
-          findFirstOrThrow: {
-            args: Prisma.VerificationFindFirstOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$VerificationPayload>
-          }
-          findMany: {
-            args: Prisma.VerificationFindManyArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$VerificationPayload>[]
-          }
-          create: {
-            args: Prisma.VerificationCreateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$VerificationPayload>
-          }
-          createMany: {
-            args: Prisma.VerificationCreateManyArgs<ExtArgs>
-            result: BatchPayload
-          }
-          createManyAndReturn: {
-            args: Prisma.VerificationCreateManyAndReturnArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$VerificationPayload>[]
-          }
-          delete: {
-            args: Prisma.VerificationDeleteArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$VerificationPayload>
-          }
-          update: {
-            args: Prisma.VerificationUpdateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$VerificationPayload>
-          }
-          deleteMany: {
-            args: Prisma.VerificationDeleteManyArgs<ExtArgs>
-            result: BatchPayload
-          }
-          updateMany: {
-            args: Prisma.VerificationUpdateManyArgs<ExtArgs>
-            result: BatchPayload
-          }
-          updateManyAndReturn: {
-            args: Prisma.VerificationUpdateManyAndReturnArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$VerificationPayload>[]
-          }
-          upsert: {
-            args: Prisma.VerificationUpsertArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$VerificationPayload>
-          }
-          aggregate: {
-            args: Prisma.VerificationAggregateArgs<ExtArgs>
-            result: $Utils.Optional<AggregateVerification>
-          }
-          groupBy: {
-            args: Prisma.VerificationGroupByArgs<ExtArgs>
-            result: $Utils.Optional<VerificationGroupByOutputType>[]
-          }
-          count: {
-            args: Prisma.VerificationCountArgs<ExtArgs>
-            result: $Utils.Optional<VerificationCountAggregateOutputType> | number
-          }
-        }
-      }
       Movie: {
         payload: Prisma.$MoviePayload<ExtArgs>
         fields: Prisma.MovieFieldRefs
@@ -1072,154 +950,6 @@ export namespace Prisma {
           count: {
             args: Prisma.MovieCountArgs<ExtArgs>
             result: $Utils.Optional<MovieCountAggregateOutputType> | number
-          }
-        }
-      }
-      Favorite: {
-        payload: Prisma.$FavoritePayload<ExtArgs>
-        fields: Prisma.FavoriteFieldRefs
-        operations: {
-          findUnique: {
-            args: Prisma.FavoriteFindUniqueArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$FavoritePayload> | null
-          }
-          findUniqueOrThrow: {
-            args: Prisma.FavoriteFindUniqueOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$FavoritePayload>
-          }
-          findFirst: {
-            args: Prisma.FavoriteFindFirstArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$FavoritePayload> | null
-          }
-          findFirstOrThrow: {
-            args: Prisma.FavoriteFindFirstOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$FavoritePayload>
-          }
-          findMany: {
-            args: Prisma.FavoriteFindManyArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$FavoritePayload>[]
-          }
-          create: {
-            args: Prisma.FavoriteCreateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$FavoritePayload>
-          }
-          createMany: {
-            args: Prisma.FavoriteCreateManyArgs<ExtArgs>
-            result: BatchPayload
-          }
-          createManyAndReturn: {
-            args: Prisma.FavoriteCreateManyAndReturnArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$FavoritePayload>[]
-          }
-          delete: {
-            args: Prisma.FavoriteDeleteArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$FavoritePayload>
-          }
-          update: {
-            args: Prisma.FavoriteUpdateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$FavoritePayload>
-          }
-          deleteMany: {
-            args: Prisma.FavoriteDeleteManyArgs<ExtArgs>
-            result: BatchPayload
-          }
-          updateMany: {
-            args: Prisma.FavoriteUpdateManyArgs<ExtArgs>
-            result: BatchPayload
-          }
-          updateManyAndReturn: {
-            args: Prisma.FavoriteUpdateManyAndReturnArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$FavoritePayload>[]
-          }
-          upsert: {
-            args: Prisma.FavoriteUpsertArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$FavoritePayload>
-          }
-          aggregate: {
-            args: Prisma.FavoriteAggregateArgs<ExtArgs>
-            result: $Utils.Optional<AggregateFavorite>
-          }
-          groupBy: {
-            args: Prisma.FavoriteGroupByArgs<ExtArgs>
-            result: $Utils.Optional<FavoriteGroupByOutputType>[]
-          }
-          count: {
-            args: Prisma.FavoriteCountArgs<ExtArgs>
-            result: $Utils.Optional<FavoriteCountAggregateOutputType> | number
-          }
-        }
-      }
-      Comment: {
-        payload: Prisma.$CommentPayload<ExtArgs>
-        fields: Prisma.CommentFieldRefs
-        operations: {
-          findUnique: {
-            args: Prisma.CommentFindUniqueArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$CommentPayload> | null
-          }
-          findUniqueOrThrow: {
-            args: Prisma.CommentFindUniqueOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$CommentPayload>
-          }
-          findFirst: {
-            args: Prisma.CommentFindFirstArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$CommentPayload> | null
-          }
-          findFirstOrThrow: {
-            args: Prisma.CommentFindFirstOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$CommentPayload>
-          }
-          findMany: {
-            args: Prisma.CommentFindManyArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$CommentPayload>[]
-          }
-          create: {
-            args: Prisma.CommentCreateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$CommentPayload>
-          }
-          createMany: {
-            args: Prisma.CommentCreateManyArgs<ExtArgs>
-            result: BatchPayload
-          }
-          createManyAndReturn: {
-            args: Prisma.CommentCreateManyAndReturnArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$CommentPayload>[]
-          }
-          delete: {
-            args: Prisma.CommentDeleteArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$CommentPayload>
-          }
-          update: {
-            args: Prisma.CommentUpdateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$CommentPayload>
-          }
-          deleteMany: {
-            args: Prisma.CommentDeleteManyArgs<ExtArgs>
-            result: BatchPayload
-          }
-          updateMany: {
-            args: Prisma.CommentUpdateManyArgs<ExtArgs>
-            result: BatchPayload
-          }
-          updateManyAndReturn: {
-            args: Prisma.CommentUpdateManyAndReturnArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$CommentPayload>[]
-          }
-          upsert: {
-            args: Prisma.CommentUpsertArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$CommentPayload>
-          }
-          aggregate: {
-            args: Prisma.CommentAggregateArgs<ExtArgs>
-            result: $Utils.Optional<AggregateComment>
-          }
-          groupBy: {
-            args: Prisma.CommentGroupByArgs<ExtArgs>
-            result: $Utils.Optional<CommentGroupByOutputType>[]
-          }
-          count: {
-            args: Prisma.CommentCountArgs<ExtArgs>
-            result: $Utils.Optional<CommentCountAggregateOutputType> | number
           }
         }
       }
@@ -1318,10 +1048,7 @@ export namespace Prisma {
     user?: UserOmit
     session?: SessionOmit
     account?: AccountOmit
-    verification?: VerificationOmit
     movie?: MovieOmit
-    favorite?: FavoriteOmit
-    comment?: CommentOmit
   }
 
   /* Types for Logging */
@@ -1404,15 +1131,11 @@ export namespace Prisma {
   export type UserCountOutputType = {
     sessions: number
     accounts: number
-    favorites: number
-    comments: number
   }
 
   export type UserCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     sessions?: boolean | UserCountOutputTypeCountSessionsArgs
     accounts?: boolean | UserCountOutputTypeCountAccountsArgs
-    favorites?: boolean | UserCountOutputTypeCountFavoritesArgs
-    comments?: boolean | UserCountOutputTypeCountCommentsArgs
   }
 
   // Custom InputTypes
@@ -1438,60 +1161,6 @@ export namespace Prisma {
    */
   export type UserCountOutputTypeCountAccountsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: AccountWhereInput
-  }
-
-  /**
-   * UserCountOutputType without action
-   */
-  export type UserCountOutputTypeCountFavoritesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: FavoriteWhereInput
-  }
-
-  /**
-   * UserCountOutputType without action
-   */
-  export type UserCountOutputTypeCountCommentsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: CommentWhereInput
-  }
-
-
-  /**
-   * Count Type MovieCountOutputType
-   */
-
-  export type MovieCountOutputType = {
-    favorites: number
-    comments: number
-  }
-
-  export type MovieCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    favorites?: boolean | MovieCountOutputTypeCountFavoritesArgs
-    comments?: boolean | MovieCountOutputTypeCountCommentsArgs
-  }
-
-  // Custom InputTypes
-  /**
-   * MovieCountOutputType without action
-   */
-  export type MovieCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the MovieCountOutputType
-     */
-    select?: MovieCountOutputTypeSelect<ExtArgs> | null
-  }
-
-  /**
-   * MovieCountOutputType without action
-   */
-  export type MovieCountOutputTypeCountFavoritesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: FavoriteWhereInput
-  }
-
-  /**
-   * MovieCountOutputType without action
-   */
-  export type MovieCountOutputTypeCountCommentsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: CommentWhereInput
   }
 
 
@@ -1681,8 +1350,6 @@ export namespace Prisma {
     updatedAt?: boolean
     sessions?: boolean | User$sessionsArgs<ExtArgs>
     accounts?: boolean | User$accountsArgs<ExtArgs>
-    favorites?: boolean | User$favoritesArgs<ExtArgs>
-    comments?: boolean | User$commentsArgs<ExtArgs>
     _count?: boolean | UserCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["user"]>
 
@@ -1720,8 +1387,6 @@ export namespace Prisma {
   export type UserInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     sessions?: boolean | User$sessionsArgs<ExtArgs>
     accounts?: boolean | User$accountsArgs<ExtArgs>
-    favorites?: boolean | User$favoritesArgs<ExtArgs>
-    comments?: boolean | User$commentsArgs<ExtArgs>
     _count?: boolean | UserCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type UserIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
@@ -1732,8 +1397,6 @@ export namespace Prisma {
     objects: {
       sessions: Prisma.$SessionPayload<ExtArgs>[]
       accounts: Prisma.$AccountPayload<ExtArgs>[]
-      favorites: Prisma.$FavoritePayload<ExtArgs>[]
-      comments: Prisma.$CommentPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
@@ -2139,8 +1802,6 @@ export namespace Prisma {
     readonly [Symbol.toStringTag]: "PrismaPromise"
     sessions<T extends User$sessionsArgs<ExtArgs> = {}>(args?: Subset<T, User$sessionsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$SessionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     accounts<T extends User$accountsArgs<ExtArgs> = {}>(args?: Subset<T, User$accountsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$AccountPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
-    favorites<T extends User$favoritesArgs<ExtArgs> = {}>(args?: Subset<T, User$favoritesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$FavoritePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
-    comments<T extends User$commentsArgs<ExtArgs> = {}>(args?: Subset<T, User$commentsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CommentPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -2608,54 +2269,6 @@ export namespace Prisma {
     take?: number
     skip?: number
     distinct?: AccountScalarFieldEnum | AccountScalarFieldEnum[]
-  }
-
-  /**
-   * User.favorites
-   */
-  export type User$favoritesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Favorite
-     */
-    select?: FavoriteSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Favorite
-     */
-    omit?: FavoriteOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: FavoriteInclude<ExtArgs> | null
-    where?: FavoriteWhereInput
-    orderBy?: FavoriteOrderByWithRelationInput | FavoriteOrderByWithRelationInput[]
-    cursor?: FavoriteWhereUniqueInput
-    take?: number
-    skip?: number
-    distinct?: FavoriteScalarFieldEnum | FavoriteScalarFieldEnum[]
-  }
-
-  /**
-   * User.comments
-   */
-  export type User$commentsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Comment
-     */
-    select?: CommentSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Comment
-     */
-    omit?: CommentOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: CommentInclude<ExtArgs> | null
-    where?: CommentWhereInput
-    orderBy?: CommentOrderByWithRelationInput | CommentOrderByWithRelationInput[]
-    cursor?: CommentWhereUniqueInput
-    take?: number
-    skip?: number
-    distinct?: CommentScalarFieldEnum | CommentScalarFieldEnum[]
   }
 
   /**
@@ -4933,1057 +4546,141 @@ export namespace Prisma {
 
 
   /**
-   * Model Verification
-   */
-
-  export type AggregateVerification = {
-    _count: VerificationCountAggregateOutputType | null
-    _min: VerificationMinAggregateOutputType | null
-    _max: VerificationMaxAggregateOutputType | null
-  }
-
-  export type VerificationMinAggregateOutputType = {
-    id: string | null
-    identifier: string | null
-    value: string | null
-    expiresAt: Date | null
-    createdAt: Date | null
-    updatedAt: Date | null
-  }
-
-  export type VerificationMaxAggregateOutputType = {
-    id: string | null
-    identifier: string | null
-    value: string | null
-    expiresAt: Date | null
-    createdAt: Date | null
-    updatedAt: Date | null
-  }
-
-  export type VerificationCountAggregateOutputType = {
-    id: number
-    identifier: number
-    value: number
-    expiresAt: number
-    createdAt: number
-    updatedAt: number
-    _all: number
-  }
-
-
-  export type VerificationMinAggregateInputType = {
-    id?: true
-    identifier?: true
-    value?: true
-    expiresAt?: true
-    createdAt?: true
-    updatedAt?: true
-  }
-
-  export type VerificationMaxAggregateInputType = {
-    id?: true
-    identifier?: true
-    value?: true
-    expiresAt?: true
-    createdAt?: true
-    updatedAt?: true
-  }
-
-  export type VerificationCountAggregateInputType = {
-    id?: true
-    identifier?: true
-    value?: true
-    expiresAt?: true
-    createdAt?: true
-    updatedAt?: true
-    _all?: true
-  }
-
-  export type VerificationAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Filter which Verification to aggregate.
-     */
-    where?: VerificationWhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of Verifications to fetch.
-     */
-    orderBy?: VerificationOrderByWithRelationInput | VerificationOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the start position
-     */
-    cursor?: VerificationWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` Verifications from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` Verifications.
-     */
-    skip?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Count returned Verifications
-    **/
-    _count?: true | VerificationCountAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to find the minimum value
-    **/
-    _min?: VerificationMinAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to find the maximum value
-    **/
-    _max?: VerificationMaxAggregateInputType
-  }
-
-  export type GetVerificationAggregateType<T extends VerificationAggregateArgs> = {
-        [P in keyof T & keyof AggregateVerification]: P extends '_count' | 'count'
-      ? T[P] extends true
-        ? number
-        : GetScalarType<T[P], AggregateVerification[P]>
-      : GetScalarType<T[P], AggregateVerification[P]>
-  }
-
-
-
-
-  export type VerificationGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: VerificationWhereInput
-    orderBy?: VerificationOrderByWithAggregationInput | VerificationOrderByWithAggregationInput[]
-    by: VerificationScalarFieldEnum[] | VerificationScalarFieldEnum
-    having?: VerificationScalarWhereWithAggregatesInput
-    take?: number
-    skip?: number
-    _count?: VerificationCountAggregateInputType | true
-    _min?: VerificationMinAggregateInputType
-    _max?: VerificationMaxAggregateInputType
-  }
-
-  export type VerificationGroupByOutputType = {
-    id: string
-    identifier: string
-    value: string
-    expiresAt: Date
-    createdAt: Date | null
-    updatedAt: Date | null
-    _count: VerificationCountAggregateOutputType | null
-    _min: VerificationMinAggregateOutputType | null
-    _max: VerificationMaxAggregateOutputType | null
-  }
-
-  type GetVerificationGroupByPayload<T extends VerificationGroupByArgs> = Prisma.PrismaPromise<
-    Array<
-      PickEnumerable<VerificationGroupByOutputType, T['by']> &
-        {
-          [P in ((keyof T) & (keyof VerificationGroupByOutputType))]: P extends '_count'
-            ? T[P] extends boolean
-              ? number
-              : GetScalarType<T[P], VerificationGroupByOutputType[P]>
-            : GetScalarType<T[P], VerificationGroupByOutputType[P]>
-        }
-      >
-    >
-
-
-  export type VerificationSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
-    id?: boolean
-    identifier?: boolean
-    value?: boolean
-    expiresAt?: boolean
-    createdAt?: boolean
-    updatedAt?: boolean
-  }, ExtArgs["result"]["verification"]>
-
-  export type VerificationSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
-    id?: boolean
-    identifier?: boolean
-    value?: boolean
-    expiresAt?: boolean
-    createdAt?: boolean
-    updatedAt?: boolean
-  }, ExtArgs["result"]["verification"]>
-
-  export type VerificationSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
-    id?: boolean
-    identifier?: boolean
-    value?: boolean
-    expiresAt?: boolean
-    createdAt?: boolean
-    updatedAt?: boolean
-  }, ExtArgs["result"]["verification"]>
-
-  export type VerificationSelectScalar = {
-    id?: boolean
-    identifier?: boolean
-    value?: boolean
-    expiresAt?: boolean
-    createdAt?: boolean
-    updatedAt?: boolean
-  }
-
-  export type VerificationOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "identifier" | "value" | "expiresAt" | "createdAt" | "updatedAt", ExtArgs["result"]["verification"]>
-
-  export type $VerificationPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    name: "Verification"
-    objects: {}
-    scalars: $Extensions.GetPayloadResult<{
-      id: string
-      identifier: string
-      value: string
-      expiresAt: Date
-      createdAt: Date | null
-      updatedAt: Date | null
-    }, ExtArgs["result"]["verification"]>
-    composites: {}
-  }
-
-  type VerificationGetPayload<S extends boolean | null | undefined | VerificationDefaultArgs> = $Result.GetResult<Prisma.$VerificationPayload, S>
-
-  type VerificationCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
-    Omit<VerificationFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
-      select?: VerificationCountAggregateInputType | true
-    }
-
-  export interface VerificationDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
-    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Verification'], meta: { name: 'Verification' } }
-    /**
-     * Find zero or one Verification that matches the filter.
-     * @param {VerificationFindUniqueArgs} args - Arguments to find a Verification
-     * @example
-     * // Get one Verification
-     * const verification = await prisma.verification.findUnique({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     */
-    findUnique<T extends VerificationFindUniqueArgs>(args: SelectSubset<T, VerificationFindUniqueArgs<ExtArgs>>): Prisma__VerificationClient<$Result.GetResult<Prisma.$VerificationPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Find one Verification that matches the filter or throw an error with `error.code='P2025'`
-     * if no matches were found.
-     * @param {VerificationFindUniqueOrThrowArgs} args - Arguments to find a Verification
-     * @example
-     * // Get one Verification
-     * const verification = await prisma.verification.findUniqueOrThrow({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     */
-    findUniqueOrThrow<T extends VerificationFindUniqueOrThrowArgs>(args: SelectSubset<T, VerificationFindUniqueOrThrowArgs<ExtArgs>>): Prisma__VerificationClient<$Result.GetResult<Prisma.$VerificationPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Find the first Verification that matches the filter.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {VerificationFindFirstArgs} args - Arguments to find a Verification
-     * @example
-     * // Get one Verification
-     * const verification = await prisma.verification.findFirst({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     */
-    findFirst<T extends VerificationFindFirstArgs>(args?: SelectSubset<T, VerificationFindFirstArgs<ExtArgs>>): Prisma__VerificationClient<$Result.GetResult<Prisma.$VerificationPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Find the first Verification that matches the filter or
-     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {VerificationFindFirstOrThrowArgs} args - Arguments to find a Verification
-     * @example
-     * // Get one Verification
-     * const verification = await prisma.verification.findFirstOrThrow({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     */
-    findFirstOrThrow<T extends VerificationFindFirstOrThrowArgs>(args?: SelectSubset<T, VerificationFindFirstOrThrowArgs<ExtArgs>>): Prisma__VerificationClient<$Result.GetResult<Prisma.$VerificationPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Find zero or more Verifications that matches the filter.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {VerificationFindManyArgs} args - Arguments to filter and select certain fields only.
-     * @example
-     * // Get all Verifications
-     * const verifications = await prisma.verification.findMany()
-     * 
-     * // Get first 10 Verifications
-     * const verifications = await prisma.verification.findMany({ take: 10 })
-     * 
-     * // Only select the `id`
-     * const verificationWithIdOnly = await prisma.verification.findMany({ select: { id: true } })
-     * 
-     */
-    findMany<T extends VerificationFindManyArgs>(args?: SelectSubset<T, VerificationFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$VerificationPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
-
-    /**
-     * Create a Verification.
-     * @param {VerificationCreateArgs} args - Arguments to create a Verification.
-     * @example
-     * // Create one Verification
-     * const Verification = await prisma.verification.create({
-     *   data: {
-     *     // ... data to create a Verification
-     *   }
-     * })
-     * 
-     */
-    create<T extends VerificationCreateArgs>(args: SelectSubset<T, VerificationCreateArgs<ExtArgs>>): Prisma__VerificationClient<$Result.GetResult<Prisma.$VerificationPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Create many Verifications.
-     * @param {VerificationCreateManyArgs} args - Arguments to create many Verifications.
-     * @example
-     * // Create many Verifications
-     * const verification = await prisma.verification.createMany({
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     *     
-     */
-    createMany<T extends VerificationCreateManyArgs>(args?: SelectSubset<T, VerificationCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
-
-    /**
-     * Create many Verifications and returns the data saved in the database.
-     * @param {VerificationCreateManyAndReturnArgs} args - Arguments to create many Verifications.
-     * @example
-     * // Create many Verifications
-     * const verification = await prisma.verification.createManyAndReturn({
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     * 
-     * // Create many Verifications and only return the `id`
-     * const verificationWithIdOnly = await prisma.verification.createManyAndReturn({
-     *   select: { id: true },
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * 
-     */
-    createManyAndReturn<T extends VerificationCreateManyAndReturnArgs>(args?: SelectSubset<T, VerificationCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$VerificationPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
-
-    /**
-     * Delete a Verification.
-     * @param {VerificationDeleteArgs} args - Arguments to delete one Verification.
-     * @example
-     * // Delete one Verification
-     * const Verification = await prisma.verification.delete({
-     *   where: {
-     *     // ... filter to delete one Verification
-     *   }
-     * })
-     * 
-     */
-    delete<T extends VerificationDeleteArgs>(args: SelectSubset<T, VerificationDeleteArgs<ExtArgs>>): Prisma__VerificationClient<$Result.GetResult<Prisma.$VerificationPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Update one Verification.
-     * @param {VerificationUpdateArgs} args - Arguments to update one Verification.
-     * @example
-     * // Update one Verification
-     * const verification = await prisma.verification.update({
-     *   where: {
-     *     // ... provide filter here
-     *   },
-     *   data: {
-     *     // ... provide data here
-     *   }
-     * })
-     * 
-     */
-    update<T extends VerificationUpdateArgs>(args: SelectSubset<T, VerificationUpdateArgs<ExtArgs>>): Prisma__VerificationClient<$Result.GetResult<Prisma.$VerificationPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Delete zero or more Verifications.
-     * @param {VerificationDeleteManyArgs} args - Arguments to filter Verifications to delete.
-     * @example
-     * // Delete a few Verifications
-     * const { count } = await prisma.verification.deleteMany({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     * 
-     */
-    deleteMany<T extends VerificationDeleteManyArgs>(args?: SelectSubset<T, VerificationDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
-
-    /**
-     * Update zero or more Verifications.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {VerificationUpdateManyArgs} args - Arguments to update one or more rows.
-     * @example
-     * // Update many Verifications
-     * const verification = await prisma.verification.updateMany({
-     *   where: {
-     *     // ... provide filter here
-     *   },
-     *   data: {
-     *     // ... provide data here
-     *   }
-     * })
-     * 
-     */
-    updateMany<T extends VerificationUpdateManyArgs>(args: SelectSubset<T, VerificationUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
-
-    /**
-     * Update zero or more Verifications and returns the data updated in the database.
-     * @param {VerificationUpdateManyAndReturnArgs} args - Arguments to update many Verifications.
-     * @example
-     * // Update many Verifications
-     * const verification = await prisma.verification.updateManyAndReturn({
-     *   where: {
-     *     // ... provide filter here
-     *   },
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     * 
-     * // Update zero or more Verifications and only return the `id`
-     * const verificationWithIdOnly = await prisma.verification.updateManyAndReturn({
-     *   select: { id: true },
-     *   where: {
-     *     // ... provide filter here
-     *   },
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * 
-     */
-    updateManyAndReturn<T extends VerificationUpdateManyAndReturnArgs>(args: SelectSubset<T, VerificationUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$VerificationPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
-
-    /**
-     * Create or update one Verification.
-     * @param {VerificationUpsertArgs} args - Arguments to update or create a Verification.
-     * @example
-     * // Update or create a Verification
-     * const verification = await prisma.verification.upsert({
-     *   create: {
-     *     // ... data to create a Verification
-     *   },
-     *   update: {
-     *     // ... in case it already exists, update
-     *   },
-     *   where: {
-     *     // ... the filter for the Verification we want to update
-     *   }
-     * })
-     */
-    upsert<T extends VerificationUpsertArgs>(args: SelectSubset<T, VerificationUpsertArgs<ExtArgs>>): Prisma__VerificationClient<$Result.GetResult<Prisma.$VerificationPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-
-    /**
-     * Count the number of Verifications.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {VerificationCountArgs} args - Arguments to filter Verifications to count.
-     * @example
-     * // Count the number of Verifications
-     * const count = await prisma.verification.count({
-     *   where: {
-     *     // ... the filter for the Verifications we want to count
-     *   }
-     * })
-    **/
-    count<T extends VerificationCountArgs>(
-      args?: Subset<T, VerificationCountArgs>,
-    ): Prisma.PrismaPromise<
-      T extends $Utils.Record<'select', any>
-        ? T['select'] extends true
-          ? number
-          : GetScalarType<T['select'], VerificationCountAggregateOutputType>
-        : number
-    >
-
-    /**
-     * Allows you to perform aggregations operations on a Verification.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {VerificationAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
-     * @example
-     * // Ordered by age ascending
-     * // Where email contains prisma.io
-     * // Limited to the 10 users
-     * const aggregations = await prisma.user.aggregate({
-     *   _avg: {
-     *     age: true,
-     *   },
-     *   where: {
-     *     email: {
-     *       contains: "prisma.io",
-     *     },
-     *   },
-     *   orderBy: {
-     *     age: "asc",
-     *   },
-     *   take: 10,
-     * })
-    **/
-    aggregate<T extends VerificationAggregateArgs>(args: Subset<T, VerificationAggregateArgs>): Prisma.PrismaPromise<GetVerificationAggregateType<T>>
-
-    /**
-     * Group by Verification.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {VerificationGroupByArgs} args - Group by arguments.
-     * @example
-     * // Group by city, order by createdAt, get count
-     * const result = await prisma.user.groupBy({
-     *   by: ['city', 'createdAt'],
-     *   orderBy: {
-     *     createdAt: true
-     *   },
-     *   _count: {
-     *     _all: true
-     *   },
-     * })
-     * 
-    **/
-    groupBy<
-      T extends VerificationGroupByArgs,
-      HasSelectOrTake extends Or<
-        Extends<'skip', Keys<T>>,
-        Extends<'take', Keys<T>>
-      >,
-      OrderByArg extends True extends HasSelectOrTake
-        ? { orderBy: VerificationGroupByArgs['orderBy'] }
-        : { orderBy?: VerificationGroupByArgs['orderBy'] },
-      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
-      ByFields extends MaybeTupleToUnion<T['by']>,
-      ByValid extends Has<ByFields, OrderFields>,
-      HavingFields extends GetHavingFields<T['having']>,
-      HavingValid extends Has<ByFields, HavingFields>,
-      ByEmpty extends T['by'] extends never[] ? True : False,
-      InputErrors extends ByEmpty extends True
-      ? `Error: "by" must not be empty.`
-      : HavingValid extends False
-      ? {
-          [P in HavingFields]: P extends ByFields
-            ? never
-            : P extends string
-            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
-            : [
-                Error,
-                'Field ',
-                P,
-                ` in "having" needs to be provided in "by"`,
-              ]
-        }[HavingFields]
-      : 'take' extends Keys<T>
-      ? 'orderBy' extends Keys<T>
-        ? ByValid extends True
-          ? {}
-          : {
-              [P in OrderFields]: P extends ByFields
-                ? never
-                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
-            }[OrderFields]
-        : 'Error: If you provide "take", you also need to provide "orderBy"'
-      : 'skip' extends Keys<T>
-      ? 'orderBy' extends Keys<T>
-        ? ByValid extends True
-          ? {}
-          : {
-              [P in OrderFields]: P extends ByFields
-                ? never
-                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
-            }[OrderFields]
-        : 'Error: If you provide "skip", you also need to provide "orderBy"'
-      : ByValid extends True
-      ? {}
-      : {
-          [P in OrderFields]: P extends ByFields
-            ? never
-            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
-        }[OrderFields]
-    >(args: SubsetIntersection<T, VerificationGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetVerificationGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
-  /**
-   * Fields of the Verification model
-   */
-  readonly fields: VerificationFieldRefs;
-  }
-
-  /**
-   * The delegate class that acts as a "Promise-like" for Verification.
-   * Why is this prefixed with `Prisma__`?
-   * Because we want to prevent naming conflicts as mentioned in
-   * https://github.com/prisma/prisma-client-js/issues/707
-   */
-  export interface Prisma__VerificationClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
-    readonly [Symbol.toStringTag]: "PrismaPromise"
-    /**
-     * Attaches callbacks for the resolution and/or rejection of the Promise.
-     * @param onfulfilled The callback to execute when the Promise is resolved.
-     * @param onrejected The callback to execute when the Promise is rejected.
-     * @returns A Promise for the completion of which ever callback is executed.
-     */
-    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
-    /**
-     * Attaches a callback for only the rejection of the Promise.
-     * @param onrejected The callback to execute when the Promise is rejected.
-     * @returns A Promise for the completion of the callback.
-     */
-    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
-    /**
-     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
-     * resolved value cannot be modified from the callback.
-     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
-     * @returns A Promise for the completion of the callback.
-     */
-    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
-  }
-
-
-
-
-  /**
-   * Fields of the Verification model
-   */
-  interface VerificationFieldRefs {
-    readonly id: FieldRef<"Verification", 'String'>
-    readonly identifier: FieldRef<"Verification", 'String'>
-    readonly value: FieldRef<"Verification", 'String'>
-    readonly expiresAt: FieldRef<"Verification", 'DateTime'>
-    readonly createdAt: FieldRef<"Verification", 'DateTime'>
-    readonly updatedAt: FieldRef<"Verification", 'DateTime'>
-  }
-    
-
-  // Custom InputTypes
-  /**
-   * Verification findUnique
-   */
-  export type VerificationFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Verification
-     */
-    select?: VerificationSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Verification
-     */
-    omit?: VerificationOmit<ExtArgs> | null
-    /**
-     * Filter, which Verification to fetch.
-     */
-    where: VerificationWhereUniqueInput
-  }
-
-  /**
-   * Verification findUniqueOrThrow
-   */
-  export type VerificationFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Verification
-     */
-    select?: VerificationSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Verification
-     */
-    omit?: VerificationOmit<ExtArgs> | null
-    /**
-     * Filter, which Verification to fetch.
-     */
-    where: VerificationWhereUniqueInput
-  }
-
-  /**
-   * Verification findFirst
-   */
-  export type VerificationFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Verification
-     */
-    select?: VerificationSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Verification
-     */
-    omit?: VerificationOmit<ExtArgs> | null
-    /**
-     * Filter, which Verification to fetch.
-     */
-    where?: VerificationWhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of Verifications to fetch.
-     */
-    orderBy?: VerificationOrderByWithRelationInput | VerificationOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the position for searching for Verifications.
-     */
-    cursor?: VerificationWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` Verifications from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` Verifications.
-     */
-    skip?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
-     * 
-     * Filter by unique combinations of Verifications.
-     */
-    distinct?: VerificationScalarFieldEnum | VerificationScalarFieldEnum[]
-  }
-
-  /**
-   * Verification findFirstOrThrow
-   */
-  export type VerificationFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Verification
-     */
-    select?: VerificationSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Verification
-     */
-    omit?: VerificationOmit<ExtArgs> | null
-    /**
-     * Filter, which Verification to fetch.
-     */
-    where?: VerificationWhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of Verifications to fetch.
-     */
-    orderBy?: VerificationOrderByWithRelationInput | VerificationOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the position for searching for Verifications.
-     */
-    cursor?: VerificationWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` Verifications from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` Verifications.
-     */
-    skip?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
-     * 
-     * Filter by unique combinations of Verifications.
-     */
-    distinct?: VerificationScalarFieldEnum | VerificationScalarFieldEnum[]
-  }
-
-  /**
-   * Verification findMany
-   */
-  export type VerificationFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Verification
-     */
-    select?: VerificationSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Verification
-     */
-    omit?: VerificationOmit<ExtArgs> | null
-    /**
-     * Filter, which Verifications to fetch.
-     */
-    where?: VerificationWhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of Verifications to fetch.
-     */
-    orderBy?: VerificationOrderByWithRelationInput | VerificationOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the position for listing Verifications.
-     */
-    cursor?: VerificationWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` Verifications from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` Verifications.
-     */
-    skip?: number
-    distinct?: VerificationScalarFieldEnum | VerificationScalarFieldEnum[]
-  }
-
-  /**
-   * Verification create
-   */
-  export type VerificationCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Verification
-     */
-    select?: VerificationSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Verification
-     */
-    omit?: VerificationOmit<ExtArgs> | null
-    /**
-     * The data needed to create a Verification.
-     */
-    data: XOR<VerificationCreateInput, VerificationUncheckedCreateInput>
-  }
-
-  /**
-   * Verification createMany
-   */
-  export type VerificationCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * The data used to create many Verifications.
-     */
-    data: VerificationCreateManyInput | VerificationCreateManyInput[]
-  }
-
-  /**
-   * Verification createManyAndReturn
-   */
-  export type VerificationCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Verification
-     */
-    select?: VerificationSelectCreateManyAndReturn<ExtArgs> | null
-    /**
-     * Omit specific fields from the Verification
-     */
-    omit?: VerificationOmit<ExtArgs> | null
-    /**
-     * The data used to create many Verifications.
-     */
-    data: VerificationCreateManyInput | VerificationCreateManyInput[]
-  }
-
-  /**
-   * Verification update
-   */
-  export type VerificationUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Verification
-     */
-    select?: VerificationSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Verification
-     */
-    omit?: VerificationOmit<ExtArgs> | null
-    /**
-     * The data needed to update a Verification.
-     */
-    data: XOR<VerificationUpdateInput, VerificationUncheckedUpdateInput>
-    /**
-     * Choose, which Verification to update.
-     */
-    where: VerificationWhereUniqueInput
-  }
-
-  /**
-   * Verification updateMany
-   */
-  export type VerificationUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * The data used to update Verifications.
-     */
-    data: XOR<VerificationUpdateManyMutationInput, VerificationUncheckedUpdateManyInput>
-    /**
-     * Filter which Verifications to update
-     */
-    where?: VerificationWhereInput
-    /**
-     * Limit how many Verifications to update.
-     */
-    limit?: number
-  }
-
-  /**
-   * Verification updateManyAndReturn
-   */
-  export type VerificationUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Verification
-     */
-    select?: VerificationSelectUpdateManyAndReturn<ExtArgs> | null
-    /**
-     * Omit specific fields from the Verification
-     */
-    omit?: VerificationOmit<ExtArgs> | null
-    /**
-     * The data used to update Verifications.
-     */
-    data: XOR<VerificationUpdateManyMutationInput, VerificationUncheckedUpdateManyInput>
-    /**
-     * Filter which Verifications to update
-     */
-    where?: VerificationWhereInput
-    /**
-     * Limit how many Verifications to update.
-     */
-    limit?: number
-  }
-
-  /**
-   * Verification upsert
-   */
-  export type VerificationUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Verification
-     */
-    select?: VerificationSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Verification
-     */
-    omit?: VerificationOmit<ExtArgs> | null
-    /**
-     * The filter to search for the Verification to update in case it exists.
-     */
-    where: VerificationWhereUniqueInput
-    /**
-     * In case the Verification found by the `where` argument doesn't exist, create a new Verification with this data.
-     */
-    create: XOR<VerificationCreateInput, VerificationUncheckedCreateInput>
-    /**
-     * In case the Verification was found with the provided `where` argument, update it with this data.
-     */
-    update: XOR<VerificationUpdateInput, VerificationUncheckedUpdateInput>
-  }
-
-  /**
-   * Verification delete
-   */
-  export type VerificationDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Verification
-     */
-    select?: VerificationSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Verification
-     */
-    omit?: VerificationOmit<ExtArgs> | null
-    /**
-     * Filter which Verification to delete.
-     */
-    where: VerificationWhereUniqueInput
-  }
-
-  /**
-   * Verification deleteMany
-   */
-  export type VerificationDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Filter which Verifications to delete
-     */
-    where?: VerificationWhereInput
-    /**
-     * Limit how many Verifications to delete.
-     */
-    limit?: number
-  }
-
-  /**
-   * Verification without action
-   */
-  export type VerificationDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Verification
-     */
-    select?: VerificationSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Verification
-     */
-    omit?: VerificationOmit<ExtArgs> | null
-  }
-
-
-  /**
    * Model Movie
    */
 
   export type AggregateMovie = {
     _count: MovieCountAggregateOutputType | null
+    _avg: MovieAvgAggregateOutputType | null
+    _sum: MovieSumAggregateOutputType | null
     _min: MovieMinAggregateOutputType | null
     _max: MovieMaxAggregateOutputType | null
   }
 
+  export type MovieAvgAggregateOutputType = {
+    id: number | null
+    voteAverage: number | null
+    voteCount: number | null
+    popularity: number | null
+  }
+
+  export type MovieSumAggregateOutputType = {
+    id: number | null
+    voteAverage: number | null
+    voteCount: number | null
+    popularity: number | null
+  }
+
   export type MovieMinAggregateOutputType = {
-    id: string | null
+    id: number | null
     title: string | null
-    posterUrl: string | null
+    originalTitle: string | null
+    overview: string | null
+    originalLang: string | null
+    releaseDate: Date | null
+    posterPath: string | null
+    backdropPath: string | null
+    voteAverage: number | null
+    voteCount: number | null
+    popularity: number | null
+    adult: boolean | null
+    createdAt: Date | null
   }
 
   export type MovieMaxAggregateOutputType = {
-    id: string | null
+    id: number | null
     title: string | null
-    posterUrl: string | null
+    originalTitle: string | null
+    overview: string | null
+    originalLang: string | null
+    releaseDate: Date | null
+    posterPath: string | null
+    backdropPath: string | null
+    voteAverage: number | null
+    voteCount: number | null
+    popularity: number | null
+    adult: boolean | null
+    createdAt: Date | null
   }
 
   export type MovieCountAggregateOutputType = {
     id: number
     title: number
-    posterUrl: number
+    originalTitle: number
+    overview: number
+    originalLang: number
+    releaseDate: number
+    posterPath: number
+    backdropPath: number
+    voteAverage: number
+    voteCount: number
+    popularity: number
+    adult: number
+    createdAt: number
     _all: number
   }
 
 
+  export type MovieAvgAggregateInputType = {
+    id?: true
+    voteAverage?: true
+    voteCount?: true
+    popularity?: true
+  }
+
+  export type MovieSumAggregateInputType = {
+    id?: true
+    voteAverage?: true
+    voteCount?: true
+    popularity?: true
+  }
+
   export type MovieMinAggregateInputType = {
     id?: true
     title?: true
-    posterUrl?: true
+    originalTitle?: true
+    overview?: true
+    originalLang?: true
+    releaseDate?: true
+    posterPath?: true
+    backdropPath?: true
+    voteAverage?: true
+    voteCount?: true
+    popularity?: true
+    adult?: true
+    createdAt?: true
   }
 
   export type MovieMaxAggregateInputType = {
     id?: true
     title?: true
-    posterUrl?: true
+    originalTitle?: true
+    overview?: true
+    originalLang?: true
+    releaseDate?: true
+    posterPath?: true
+    backdropPath?: true
+    voteAverage?: true
+    voteCount?: true
+    popularity?: true
+    adult?: true
+    createdAt?: true
   }
 
   export type MovieCountAggregateInputType = {
     id?: true
     title?: true
-    posterUrl?: true
+    originalTitle?: true
+    overview?: true
+    originalLang?: true
+    releaseDate?: true
+    posterPath?: true
+    backdropPath?: true
+    voteAverage?: true
+    voteCount?: true
+    popularity?: true
+    adult?: true
+    createdAt?: true
     _all?: true
   }
 
@@ -6025,6 +4722,18 @@ export namespace Prisma {
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
+     * Select which fields to average
+    **/
+    _avg?: MovieAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: MovieSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
      * Select which fields to find the minimum value
     **/
     _min?: MovieMinAggregateInputType
@@ -6055,15 +4764,29 @@ export namespace Prisma {
     take?: number
     skip?: number
     _count?: MovieCountAggregateInputType | true
+    _avg?: MovieAvgAggregateInputType
+    _sum?: MovieSumAggregateInputType
     _min?: MovieMinAggregateInputType
     _max?: MovieMaxAggregateInputType
   }
 
   export type MovieGroupByOutputType = {
-    id: string
+    id: number
     title: string
-    posterUrl: string | null
+    originalTitle: string
+    overview: string
+    originalLang: string
+    releaseDate: Date
+    posterPath: string
+    backdropPath: string
+    voteAverage: number
+    voteCount: number
+    popularity: number
+    adult: boolean
+    createdAt: Date
     _count: MovieCountAggregateOutputType | null
+    _avg: MovieAvgAggregateOutputType | null
+    _sum: MovieSumAggregateOutputType | null
     _min: MovieMinAggregateOutputType | null
     _max: MovieMaxAggregateOutputType | null
   }
@@ -6085,49 +4808,86 @@ export namespace Prisma {
   export type MovieSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     title?: boolean
-    posterUrl?: boolean
-    favorites?: boolean | Movie$favoritesArgs<ExtArgs>
-    comments?: boolean | Movie$commentsArgs<ExtArgs>
-    _count?: boolean | MovieCountOutputTypeDefaultArgs<ExtArgs>
+    originalTitle?: boolean
+    overview?: boolean
+    originalLang?: boolean
+    releaseDate?: boolean
+    posterPath?: boolean
+    backdropPath?: boolean
+    voteAverage?: boolean
+    voteCount?: boolean
+    popularity?: boolean
+    adult?: boolean
+    createdAt?: boolean
   }, ExtArgs["result"]["movie"]>
 
   export type MovieSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     title?: boolean
-    posterUrl?: boolean
+    originalTitle?: boolean
+    overview?: boolean
+    originalLang?: boolean
+    releaseDate?: boolean
+    posterPath?: boolean
+    backdropPath?: boolean
+    voteAverage?: boolean
+    voteCount?: boolean
+    popularity?: boolean
+    adult?: boolean
+    createdAt?: boolean
   }, ExtArgs["result"]["movie"]>
 
   export type MovieSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     title?: boolean
-    posterUrl?: boolean
+    originalTitle?: boolean
+    overview?: boolean
+    originalLang?: boolean
+    releaseDate?: boolean
+    posterPath?: boolean
+    backdropPath?: boolean
+    voteAverage?: boolean
+    voteCount?: boolean
+    popularity?: boolean
+    adult?: boolean
+    createdAt?: boolean
   }, ExtArgs["result"]["movie"]>
 
   export type MovieSelectScalar = {
     id?: boolean
     title?: boolean
-    posterUrl?: boolean
+    originalTitle?: boolean
+    overview?: boolean
+    originalLang?: boolean
+    releaseDate?: boolean
+    posterPath?: boolean
+    backdropPath?: boolean
+    voteAverage?: boolean
+    voteCount?: boolean
+    popularity?: boolean
+    adult?: boolean
+    createdAt?: boolean
   }
 
-  export type MovieOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "title" | "posterUrl", ExtArgs["result"]["movie"]>
-  export type MovieInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    favorites?: boolean | Movie$favoritesArgs<ExtArgs>
-    comments?: boolean | Movie$commentsArgs<ExtArgs>
-    _count?: boolean | MovieCountOutputTypeDefaultArgs<ExtArgs>
-  }
-  export type MovieIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
-  export type MovieIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
+  export type MovieOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "title" | "originalTitle" | "overview" | "originalLang" | "releaseDate" | "posterPath" | "backdropPath" | "voteAverage" | "voteCount" | "popularity" | "adult" | "createdAt", ExtArgs["result"]["movie"]>
 
   export type $MoviePayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "Movie"
-    objects: {
-      favorites: Prisma.$FavoritePayload<ExtArgs>[]
-      comments: Prisma.$CommentPayload<ExtArgs>[]
-    }
+    objects: {}
     scalars: $Extensions.GetPayloadResult<{
-      id: string
+      id: number
       title: string
-      posterUrl: string | null
+      originalTitle: string
+      overview: string
+      originalLang: string
+      releaseDate: Date
+      posterPath: string
+      backdropPath: string
+      voteAverage: number
+      voteCount: number
+      popularity: number
+      adult: boolean
+      createdAt: Date
     }, ExtArgs["result"]["movie"]>
     composites: {}
   }
@@ -6522,8 +5282,6 @@ export namespace Prisma {
    */
   export interface Prisma__MovieClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
-    favorites<T extends Movie$favoritesArgs<ExtArgs> = {}>(args?: Subset<T, Movie$favoritesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$FavoritePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
-    comments<T extends Movie$commentsArgs<ExtArgs> = {}>(args?: Subset<T, Movie$commentsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CommentPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -6553,9 +5311,19 @@ export namespace Prisma {
    * Fields of the Movie model
    */
   interface MovieFieldRefs {
-    readonly id: FieldRef<"Movie", 'String'>
+    readonly id: FieldRef<"Movie", 'Int'>
     readonly title: FieldRef<"Movie", 'String'>
-    readonly posterUrl: FieldRef<"Movie", 'String'>
+    readonly originalTitle: FieldRef<"Movie", 'String'>
+    readonly overview: FieldRef<"Movie", 'String'>
+    readonly originalLang: FieldRef<"Movie", 'String'>
+    readonly releaseDate: FieldRef<"Movie", 'DateTime'>
+    readonly posterPath: FieldRef<"Movie", 'String'>
+    readonly backdropPath: FieldRef<"Movie", 'String'>
+    readonly voteAverage: FieldRef<"Movie", 'Float'>
+    readonly voteCount: FieldRef<"Movie", 'Int'>
+    readonly popularity: FieldRef<"Movie", 'Float'>
+    readonly adult: FieldRef<"Movie", 'Boolean'>
+    readonly createdAt: FieldRef<"Movie", 'DateTime'>
   }
     
 
@@ -6572,10 +5340,6 @@ export namespace Prisma {
      * Omit specific fields from the Movie
      */
     omit?: MovieOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: MovieInclude<ExtArgs> | null
     /**
      * Filter, which Movie to fetch.
      */
@@ -6595,10 +5359,6 @@ export namespace Prisma {
      */
     omit?: MovieOmit<ExtArgs> | null
     /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: MovieInclude<ExtArgs> | null
-    /**
      * Filter, which Movie to fetch.
      */
     where: MovieWhereUniqueInput
@@ -6616,10 +5376,6 @@ export namespace Prisma {
      * Omit specific fields from the Movie
      */
     omit?: MovieOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: MovieInclude<ExtArgs> | null
     /**
      * Filter, which Movie to fetch.
      */
@@ -6669,10 +5425,6 @@ export namespace Prisma {
      */
     omit?: MovieOmit<ExtArgs> | null
     /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: MovieInclude<ExtArgs> | null
-    /**
      * Filter, which Movie to fetch.
      */
     where?: MovieWhereInput
@@ -6721,10 +5473,6 @@ export namespace Prisma {
      */
     omit?: MovieOmit<ExtArgs> | null
     /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: MovieInclude<ExtArgs> | null
-    /**
      * Filter, which Movies to fetch.
      */
     where?: MovieWhereInput
@@ -6767,10 +5515,6 @@ export namespace Prisma {
      * Omit specific fields from the Movie
      */
     omit?: MovieOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: MovieInclude<ExtArgs> | null
     /**
      * The data needed to create a Movie.
      */
@@ -6817,10 +5561,6 @@ export namespace Prisma {
      * Omit specific fields from the Movie
      */
     omit?: MovieOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: MovieInclude<ExtArgs> | null
     /**
      * The data needed to update a Movie.
      */
@@ -6888,10 +5628,6 @@ export namespace Prisma {
      */
     omit?: MovieOmit<ExtArgs> | null
     /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: MovieInclude<ExtArgs> | null
-    /**
      * The filter to search for the Movie to update in case it exists.
      */
     where: MovieWhereUniqueInput
@@ -6918,10 +5654,6 @@ export namespace Prisma {
      */
     omit?: MovieOmit<ExtArgs> | null
     /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: MovieInclude<ExtArgs> | null
-    /**
      * Filter which Movie to delete.
      */
     where: MovieWhereUniqueInput
@@ -6942,54 +5674,6 @@ export namespace Prisma {
   }
 
   /**
-   * Movie.favorites
-   */
-  export type Movie$favoritesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Favorite
-     */
-    select?: FavoriteSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Favorite
-     */
-    omit?: FavoriteOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: FavoriteInclude<ExtArgs> | null
-    where?: FavoriteWhereInput
-    orderBy?: FavoriteOrderByWithRelationInput | FavoriteOrderByWithRelationInput[]
-    cursor?: FavoriteWhereUniqueInput
-    take?: number
-    skip?: number
-    distinct?: FavoriteScalarFieldEnum | FavoriteScalarFieldEnum[]
-  }
-
-  /**
-   * Movie.comments
-   */
-  export type Movie$commentsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Comment
-     */
-    select?: CommentSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Comment
-     */
-    omit?: CommentOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: CommentInclude<ExtArgs> | null
-    where?: CommentWhereInput
-    orderBy?: CommentOrderByWithRelationInput | CommentOrderByWithRelationInput[]
-    cursor?: CommentWhereUniqueInput
-    take?: number
-    skip?: number
-    distinct?: CommentScalarFieldEnum | CommentScalarFieldEnum[]
-  }
-
-  /**
    * Movie without action
    */
   export type MovieDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -7001,2112 +5685,6 @@ export namespace Prisma {
      * Omit specific fields from the Movie
      */
     omit?: MovieOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: MovieInclude<ExtArgs> | null
-  }
-
-
-  /**
-   * Model Favorite
-   */
-
-  export type AggregateFavorite = {
-    _count: FavoriteCountAggregateOutputType | null
-    _min: FavoriteMinAggregateOutputType | null
-    _max: FavoriteMaxAggregateOutputType | null
-  }
-
-  export type FavoriteMinAggregateOutputType = {
-    id: string | null
-    userId: string | null
-    movieId: string | null
-  }
-
-  export type FavoriteMaxAggregateOutputType = {
-    id: string | null
-    userId: string | null
-    movieId: string | null
-  }
-
-  export type FavoriteCountAggregateOutputType = {
-    id: number
-    userId: number
-    movieId: number
-    _all: number
-  }
-
-
-  export type FavoriteMinAggregateInputType = {
-    id?: true
-    userId?: true
-    movieId?: true
-  }
-
-  export type FavoriteMaxAggregateInputType = {
-    id?: true
-    userId?: true
-    movieId?: true
-  }
-
-  export type FavoriteCountAggregateInputType = {
-    id?: true
-    userId?: true
-    movieId?: true
-    _all?: true
-  }
-
-  export type FavoriteAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Filter which Favorite to aggregate.
-     */
-    where?: FavoriteWhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of Favorites to fetch.
-     */
-    orderBy?: FavoriteOrderByWithRelationInput | FavoriteOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the start position
-     */
-    cursor?: FavoriteWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` Favorites from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` Favorites.
-     */
-    skip?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Count returned Favorites
-    **/
-    _count?: true | FavoriteCountAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to find the minimum value
-    **/
-    _min?: FavoriteMinAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to find the maximum value
-    **/
-    _max?: FavoriteMaxAggregateInputType
-  }
-
-  export type GetFavoriteAggregateType<T extends FavoriteAggregateArgs> = {
-        [P in keyof T & keyof AggregateFavorite]: P extends '_count' | 'count'
-      ? T[P] extends true
-        ? number
-        : GetScalarType<T[P], AggregateFavorite[P]>
-      : GetScalarType<T[P], AggregateFavorite[P]>
-  }
-
-
-
-
-  export type FavoriteGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: FavoriteWhereInput
-    orderBy?: FavoriteOrderByWithAggregationInput | FavoriteOrderByWithAggregationInput[]
-    by: FavoriteScalarFieldEnum[] | FavoriteScalarFieldEnum
-    having?: FavoriteScalarWhereWithAggregatesInput
-    take?: number
-    skip?: number
-    _count?: FavoriteCountAggregateInputType | true
-    _min?: FavoriteMinAggregateInputType
-    _max?: FavoriteMaxAggregateInputType
-  }
-
-  export type FavoriteGroupByOutputType = {
-    id: string
-    userId: string
-    movieId: string
-    _count: FavoriteCountAggregateOutputType | null
-    _min: FavoriteMinAggregateOutputType | null
-    _max: FavoriteMaxAggregateOutputType | null
-  }
-
-  type GetFavoriteGroupByPayload<T extends FavoriteGroupByArgs> = Prisma.PrismaPromise<
-    Array<
-      PickEnumerable<FavoriteGroupByOutputType, T['by']> &
-        {
-          [P in ((keyof T) & (keyof FavoriteGroupByOutputType))]: P extends '_count'
-            ? T[P] extends boolean
-              ? number
-              : GetScalarType<T[P], FavoriteGroupByOutputType[P]>
-            : GetScalarType<T[P], FavoriteGroupByOutputType[P]>
-        }
-      >
-    >
-
-
-  export type FavoriteSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
-    id?: boolean
-    userId?: boolean
-    movieId?: boolean
-    user?: boolean | UserDefaultArgs<ExtArgs>
-    movie?: boolean | MovieDefaultArgs<ExtArgs>
-  }, ExtArgs["result"]["favorite"]>
-
-  export type FavoriteSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
-    id?: boolean
-    userId?: boolean
-    movieId?: boolean
-    user?: boolean | UserDefaultArgs<ExtArgs>
-    movie?: boolean | MovieDefaultArgs<ExtArgs>
-  }, ExtArgs["result"]["favorite"]>
-
-  export type FavoriteSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
-    id?: boolean
-    userId?: boolean
-    movieId?: boolean
-    user?: boolean | UserDefaultArgs<ExtArgs>
-    movie?: boolean | MovieDefaultArgs<ExtArgs>
-  }, ExtArgs["result"]["favorite"]>
-
-  export type FavoriteSelectScalar = {
-    id?: boolean
-    userId?: boolean
-    movieId?: boolean
-  }
-
-  export type FavoriteOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "userId" | "movieId", ExtArgs["result"]["favorite"]>
-  export type FavoriteInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    user?: boolean | UserDefaultArgs<ExtArgs>
-    movie?: boolean | MovieDefaultArgs<ExtArgs>
-  }
-  export type FavoriteIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    user?: boolean | UserDefaultArgs<ExtArgs>
-    movie?: boolean | MovieDefaultArgs<ExtArgs>
-  }
-  export type FavoriteIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    user?: boolean | UserDefaultArgs<ExtArgs>
-    movie?: boolean | MovieDefaultArgs<ExtArgs>
-  }
-
-  export type $FavoritePayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    name: "Favorite"
-    objects: {
-      user: Prisma.$UserPayload<ExtArgs>
-      movie: Prisma.$MoviePayload<ExtArgs>
-    }
-    scalars: $Extensions.GetPayloadResult<{
-      id: string
-      userId: string
-      movieId: string
-    }, ExtArgs["result"]["favorite"]>
-    composites: {}
-  }
-
-  type FavoriteGetPayload<S extends boolean | null | undefined | FavoriteDefaultArgs> = $Result.GetResult<Prisma.$FavoritePayload, S>
-
-  type FavoriteCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
-    Omit<FavoriteFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
-      select?: FavoriteCountAggregateInputType | true
-    }
-
-  export interface FavoriteDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
-    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Favorite'], meta: { name: 'Favorite' } }
-    /**
-     * Find zero or one Favorite that matches the filter.
-     * @param {FavoriteFindUniqueArgs} args - Arguments to find a Favorite
-     * @example
-     * // Get one Favorite
-     * const favorite = await prisma.favorite.findUnique({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     */
-    findUnique<T extends FavoriteFindUniqueArgs>(args: SelectSubset<T, FavoriteFindUniqueArgs<ExtArgs>>): Prisma__FavoriteClient<$Result.GetResult<Prisma.$FavoritePayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Find one Favorite that matches the filter or throw an error with `error.code='P2025'`
-     * if no matches were found.
-     * @param {FavoriteFindUniqueOrThrowArgs} args - Arguments to find a Favorite
-     * @example
-     * // Get one Favorite
-     * const favorite = await prisma.favorite.findUniqueOrThrow({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     */
-    findUniqueOrThrow<T extends FavoriteFindUniqueOrThrowArgs>(args: SelectSubset<T, FavoriteFindUniqueOrThrowArgs<ExtArgs>>): Prisma__FavoriteClient<$Result.GetResult<Prisma.$FavoritePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Find the first Favorite that matches the filter.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {FavoriteFindFirstArgs} args - Arguments to find a Favorite
-     * @example
-     * // Get one Favorite
-     * const favorite = await prisma.favorite.findFirst({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     */
-    findFirst<T extends FavoriteFindFirstArgs>(args?: SelectSubset<T, FavoriteFindFirstArgs<ExtArgs>>): Prisma__FavoriteClient<$Result.GetResult<Prisma.$FavoritePayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Find the first Favorite that matches the filter or
-     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {FavoriteFindFirstOrThrowArgs} args - Arguments to find a Favorite
-     * @example
-     * // Get one Favorite
-     * const favorite = await prisma.favorite.findFirstOrThrow({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     */
-    findFirstOrThrow<T extends FavoriteFindFirstOrThrowArgs>(args?: SelectSubset<T, FavoriteFindFirstOrThrowArgs<ExtArgs>>): Prisma__FavoriteClient<$Result.GetResult<Prisma.$FavoritePayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Find zero or more Favorites that matches the filter.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {FavoriteFindManyArgs} args - Arguments to filter and select certain fields only.
-     * @example
-     * // Get all Favorites
-     * const favorites = await prisma.favorite.findMany()
-     * 
-     * // Get first 10 Favorites
-     * const favorites = await prisma.favorite.findMany({ take: 10 })
-     * 
-     * // Only select the `id`
-     * const favoriteWithIdOnly = await prisma.favorite.findMany({ select: { id: true } })
-     * 
-     */
-    findMany<T extends FavoriteFindManyArgs>(args?: SelectSubset<T, FavoriteFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$FavoritePayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
-
-    /**
-     * Create a Favorite.
-     * @param {FavoriteCreateArgs} args - Arguments to create a Favorite.
-     * @example
-     * // Create one Favorite
-     * const Favorite = await prisma.favorite.create({
-     *   data: {
-     *     // ... data to create a Favorite
-     *   }
-     * })
-     * 
-     */
-    create<T extends FavoriteCreateArgs>(args: SelectSubset<T, FavoriteCreateArgs<ExtArgs>>): Prisma__FavoriteClient<$Result.GetResult<Prisma.$FavoritePayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Create many Favorites.
-     * @param {FavoriteCreateManyArgs} args - Arguments to create many Favorites.
-     * @example
-     * // Create many Favorites
-     * const favorite = await prisma.favorite.createMany({
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     *     
-     */
-    createMany<T extends FavoriteCreateManyArgs>(args?: SelectSubset<T, FavoriteCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
-
-    /**
-     * Create many Favorites and returns the data saved in the database.
-     * @param {FavoriteCreateManyAndReturnArgs} args - Arguments to create many Favorites.
-     * @example
-     * // Create many Favorites
-     * const favorite = await prisma.favorite.createManyAndReturn({
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     * 
-     * // Create many Favorites and only return the `id`
-     * const favoriteWithIdOnly = await prisma.favorite.createManyAndReturn({
-     *   select: { id: true },
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * 
-     */
-    createManyAndReturn<T extends FavoriteCreateManyAndReturnArgs>(args?: SelectSubset<T, FavoriteCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$FavoritePayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
-
-    /**
-     * Delete a Favorite.
-     * @param {FavoriteDeleteArgs} args - Arguments to delete one Favorite.
-     * @example
-     * // Delete one Favorite
-     * const Favorite = await prisma.favorite.delete({
-     *   where: {
-     *     // ... filter to delete one Favorite
-     *   }
-     * })
-     * 
-     */
-    delete<T extends FavoriteDeleteArgs>(args: SelectSubset<T, FavoriteDeleteArgs<ExtArgs>>): Prisma__FavoriteClient<$Result.GetResult<Prisma.$FavoritePayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Update one Favorite.
-     * @param {FavoriteUpdateArgs} args - Arguments to update one Favorite.
-     * @example
-     * // Update one Favorite
-     * const favorite = await prisma.favorite.update({
-     *   where: {
-     *     // ... provide filter here
-     *   },
-     *   data: {
-     *     // ... provide data here
-     *   }
-     * })
-     * 
-     */
-    update<T extends FavoriteUpdateArgs>(args: SelectSubset<T, FavoriteUpdateArgs<ExtArgs>>): Prisma__FavoriteClient<$Result.GetResult<Prisma.$FavoritePayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Delete zero or more Favorites.
-     * @param {FavoriteDeleteManyArgs} args - Arguments to filter Favorites to delete.
-     * @example
-     * // Delete a few Favorites
-     * const { count } = await prisma.favorite.deleteMany({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     * 
-     */
-    deleteMany<T extends FavoriteDeleteManyArgs>(args?: SelectSubset<T, FavoriteDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
-
-    /**
-     * Update zero or more Favorites.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {FavoriteUpdateManyArgs} args - Arguments to update one or more rows.
-     * @example
-     * // Update many Favorites
-     * const favorite = await prisma.favorite.updateMany({
-     *   where: {
-     *     // ... provide filter here
-     *   },
-     *   data: {
-     *     // ... provide data here
-     *   }
-     * })
-     * 
-     */
-    updateMany<T extends FavoriteUpdateManyArgs>(args: SelectSubset<T, FavoriteUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
-
-    /**
-     * Update zero or more Favorites and returns the data updated in the database.
-     * @param {FavoriteUpdateManyAndReturnArgs} args - Arguments to update many Favorites.
-     * @example
-     * // Update many Favorites
-     * const favorite = await prisma.favorite.updateManyAndReturn({
-     *   where: {
-     *     // ... provide filter here
-     *   },
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     * 
-     * // Update zero or more Favorites and only return the `id`
-     * const favoriteWithIdOnly = await prisma.favorite.updateManyAndReturn({
-     *   select: { id: true },
-     *   where: {
-     *     // ... provide filter here
-     *   },
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * 
-     */
-    updateManyAndReturn<T extends FavoriteUpdateManyAndReturnArgs>(args: SelectSubset<T, FavoriteUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$FavoritePayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
-
-    /**
-     * Create or update one Favorite.
-     * @param {FavoriteUpsertArgs} args - Arguments to update or create a Favorite.
-     * @example
-     * // Update or create a Favorite
-     * const favorite = await prisma.favorite.upsert({
-     *   create: {
-     *     // ... data to create a Favorite
-     *   },
-     *   update: {
-     *     // ... in case it already exists, update
-     *   },
-     *   where: {
-     *     // ... the filter for the Favorite we want to update
-     *   }
-     * })
-     */
-    upsert<T extends FavoriteUpsertArgs>(args: SelectSubset<T, FavoriteUpsertArgs<ExtArgs>>): Prisma__FavoriteClient<$Result.GetResult<Prisma.$FavoritePayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-
-    /**
-     * Count the number of Favorites.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {FavoriteCountArgs} args - Arguments to filter Favorites to count.
-     * @example
-     * // Count the number of Favorites
-     * const count = await prisma.favorite.count({
-     *   where: {
-     *     // ... the filter for the Favorites we want to count
-     *   }
-     * })
-    **/
-    count<T extends FavoriteCountArgs>(
-      args?: Subset<T, FavoriteCountArgs>,
-    ): Prisma.PrismaPromise<
-      T extends $Utils.Record<'select', any>
-        ? T['select'] extends true
-          ? number
-          : GetScalarType<T['select'], FavoriteCountAggregateOutputType>
-        : number
-    >
-
-    /**
-     * Allows you to perform aggregations operations on a Favorite.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {FavoriteAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
-     * @example
-     * // Ordered by age ascending
-     * // Where email contains prisma.io
-     * // Limited to the 10 users
-     * const aggregations = await prisma.user.aggregate({
-     *   _avg: {
-     *     age: true,
-     *   },
-     *   where: {
-     *     email: {
-     *       contains: "prisma.io",
-     *     },
-     *   },
-     *   orderBy: {
-     *     age: "asc",
-     *   },
-     *   take: 10,
-     * })
-    **/
-    aggregate<T extends FavoriteAggregateArgs>(args: Subset<T, FavoriteAggregateArgs>): Prisma.PrismaPromise<GetFavoriteAggregateType<T>>
-
-    /**
-     * Group by Favorite.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {FavoriteGroupByArgs} args - Group by arguments.
-     * @example
-     * // Group by city, order by createdAt, get count
-     * const result = await prisma.user.groupBy({
-     *   by: ['city', 'createdAt'],
-     *   orderBy: {
-     *     createdAt: true
-     *   },
-     *   _count: {
-     *     _all: true
-     *   },
-     * })
-     * 
-    **/
-    groupBy<
-      T extends FavoriteGroupByArgs,
-      HasSelectOrTake extends Or<
-        Extends<'skip', Keys<T>>,
-        Extends<'take', Keys<T>>
-      >,
-      OrderByArg extends True extends HasSelectOrTake
-        ? { orderBy: FavoriteGroupByArgs['orderBy'] }
-        : { orderBy?: FavoriteGroupByArgs['orderBy'] },
-      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
-      ByFields extends MaybeTupleToUnion<T['by']>,
-      ByValid extends Has<ByFields, OrderFields>,
-      HavingFields extends GetHavingFields<T['having']>,
-      HavingValid extends Has<ByFields, HavingFields>,
-      ByEmpty extends T['by'] extends never[] ? True : False,
-      InputErrors extends ByEmpty extends True
-      ? `Error: "by" must not be empty.`
-      : HavingValid extends False
-      ? {
-          [P in HavingFields]: P extends ByFields
-            ? never
-            : P extends string
-            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
-            : [
-                Error,
-                'Field ',
-                P,
-                ` in "having" needs to be provided in "by"`,
-              ]
-        }[HavingFields]
-      : 'take' extends Keys<T>
-      ? 'orderBy' extends Keys<T>
-        ? ByValid extends True
-          ? {}
-          : {
-              [P in OrderFields]: P extends ByFields
-                ? never
-                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
-            }[OrderFields]
-        : 'Error: If you provide "take", you also need to provide "orderBy"'
-      : 'skip' extends Keys<T>
-      ? 'orderBy' extends Keys<T>
-        ? ByValid extends True
-          ? {}
-          : {
-              [P in OrderFields]: P extends ByFields
-                ? never
-                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
-            }[OrderFields]
-        : 'Error: If you provide "skip", you also need to provide "orderBy"'
-      : ByValid extends True
-      ? {}
-      : {
-          [P in OrderFields]: P extends ByFields
-            ? never
-            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
-        }[OrderFields]
-    >(args: SubsetIntersection<T, FavoriteGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetFavoriteGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
-  /**
-   * Fields of the Favorite model
-   */
-  readonly fields: FavoriteFieldRefs;
-  }
-
-  /**
-   * The delegate class that acts as a "Promise-like" for Favorite.
-   * Why is this prefixed with `Prisma__`?
-   * Because we want to prevent naming conflicts as mentioned in
-   * https://github.com/prisma/prisma-client-js/issues/707
-   */
-  export interface Prisma__FavoriteClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
-    readonly [Symbol.toStringTag]: "PrismaPromise"
-    user<T extends UserDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UserDefaultArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
-    movie<T extends MovieDefaultArgs<ExtArgs> = {}>(args?: Subset<T, MovieDefaultArgs<ExtArgs>>): Prisma__MovieClient<$Result.GetResult<Prisma.$MoviePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
-    /**
-     * Attaches callbacks for the resolution and/or rejection of the Promise.
-     * @param onfulfilled The callback to execute when the Promise is resolved.
-     * @param onrejected The callback to execute when the Promise is rejected.
-     * @returns A Promise for the completion of which ever callback is executed.
-     */
-    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
-    /**
-     * Attaches a callback for only the rejection of the Promise.
-     * @param onrejected The callback to execute when the Promise is rejected.
-     * @returns A Promise for the completion of the callback.
-     */
-    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
-    /**
-     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
-     * resolved value cannot be modified from the callback.
-     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
-     * @returns A Promise for the completion of the callback.
-     */
-    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
-  }
-
-
-
-
-  /**
-   * Fields of the Favorite model
-   */
-  interface FavoriteFieldRefs {
-    readonly id: FieldRef<"Favorite", 'String'>
-    readonly userId: FieldRef<"Favorite", 'String'>
-    readonly movieId: FieldRef<"Favorite", 'String'>
-  }
-    
-
-  // Custom InputTypes
-  /**
-   * Favorite findUnique
-   */
-  export type FavoriteFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Favorite
-     */
-    select?: FavoriteSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Favorite
-     */
-    omit?: FavoriteOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: FavoriteInclude<ExtArgs> | null
-    /**
-     * Filter, which Favorite to fetch.
-     */
-    where: FavoriteWhereUniqueInput
-  }
-
-  /**
-   * Favorite findUniqueOrThrow
-   */
-  export type FavoriteFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Favorite
-     */
-    select?: FavoriteSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Favorite
-     */
-    omit?: FavoriteOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: FavoriteInclude<ExtArgs> | null
-    /**
-     * Filter, which Favorite to fetch.
-     */
-    where: FavoriteWhereUniqueInput
-  }
-
-  /**
-   * Favorite findFirst
-   */
-  export type FavoriteFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Favorite
-     */
-    select?: FavoriteSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Favorite
-     */
-    omit?: FavoriteOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: FavoriteInclude<ExtArgs> | null
-    /**
-     * Filter, which Favorite to fetch.
-     */
-    where?: FavoriteWhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of Favorites to fetch.
-     */
-    orderBy?: FavoriteOrderByWithRelationInput | FavoriteOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the position for searching for Favorites.
-     */
-    cursor?: FavoriteWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` Favorites from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` Favorites.
-     */
-    skip?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
-     * 
-     * Filter by unique combinations of Favorites.
-     */
-    distinct?: FavoriteScalarFieldEnum | FavoriteScalarFieldEnum[]
-  }
-
-  /**
-   * Favorite findFirstOrThrow
-   */
-  export type FavoriteFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Favorite
-     */
-    select?: FavoriteSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Favorite
-     */
-    omit?: FavoriteOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: FavoriteInclude<ExtArgs> | null
-    /**
-     * Filter, which Favorite to fetch.
-     */
-    where?: FavoriteWhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of Favorites to fetch.
-     */
-    orderBy?: FavoriteOrderByWithRelationInput | FavoriteOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the position for searching for Favorites.
-     */
-    cursor?: FavoriteWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` Favorites from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` Favorites.
-     */
-    skip?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
-     * 
-     * Filter by unique combinations of Favorites.
-     */
-    distinct?: FavoriteScalarFieldEnum | FavoriteScalarFieldEnum[]
-  }
-
-  /**
-   * Favorite findMany
-   */
-  export type FavoriteFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Favorite
-     */
-    select?: FavoriteSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Favorite
-     */
-    omit?: FavoriteOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: FavoriteInclude<ExtArgs> | null
-    /**
-     * Filter, which Favorites to fetch.
-     */
-    where?: FavoriteWhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of Favorites to fetch.
-     */
-    orderBy?: FavoriteOrderByWithRelationInput | FavoriteOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the position for listing Favorites.
-     */
-    cursor?: FavoriteWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` Favorites from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` Favorites.
-     */
-    skip?: number
-    distinct?: FavoriteScalarFieldEnum | FavoriteScalarFieldEnum[]
-  }
-
-  /**
-   * Favorite create
-   */
-  export type FavoriteCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Favorite
-     */
-    select?: FavoriteSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Favorite
-     */
-    omit?: FavoriteOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: FavoriteInclude<ExtArgs> | null
-    /**
-     * The data needed to create a Favorite.
-     */
-    data: XOR<FavoriteCreateInput, FavoriteUncheckedCreateInput>
-  }
-
-  /**
-   * Favorite createMany
-   */
-  export type FavoriteCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * The data used to create many Favorites.
-     */
-    data: FavoriteCreateManyInput | FavoriteCreateManyInput[]
-  }
-
-  /**
-   * Favorite createManyAndReturn
-   */
-  export type FavoriteCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Favorite
-     */
-    select?: FavoriteSelectCreateManyAndReturn<ExtArgs> | null
-    /**
-     * Omit specific fields from the Favorite
-     */
-    omit?: FavoriteOmit<ExtArgs> | null
-    /**
-     * The data used to create many Favorites.
-     */
-    data: FavoriteCreateManyInput | FavoriteCreateManyInput[]
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: FavoriteIncludeCreateManyAndReturn<ExtArgs> | null
-  }
-
-  /**
-   * Favorite update
-   */
-  export type FavoriteUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Favorite
-     */
-    select?: FavoriteSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Favorite
-     */
-    omit?: FavoriteOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: FavoriteInclude<ExtArgs> | null
-    /**
-     * The data needed to update a Favorite.
-     */
-    data: XOR<FavoriteUpdateInput, FavoriteUncheckedUpdateInput>
-    /**
-     * Choose, which Favorite to update.
-     */
-    where: FavoriteWhereUniqueInput
-  }
-
-  /**
-   * Favorite updateMany
-   */
-  export type FavoriteUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * The data used to update Favorites.
-     */
-    data: XOR<FavoriteUpdateManyMutationInput, FavoriteUncheckedUpdateManyInput>
-    /**
-     * Filter which Favorites to update
-     */
-    where?: FavoriteWhereInput
-    /**
-     * Limit how many Favorites to update.
-     */
-    limit?: number
-  }
-
-  /**
-   * Favorite updateManyAndReturn
-   */
-  export type FavoriteUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Favorite
-     */
-    select?: FavoriteSelectUpdateManyAndReturn<ExtArgs> | null
-    /**
-     * Omit specific fields from the Favorite
-     */
-    omit?: FavoriteOmit<ExtArgs> | null
-    /**
-     * The data used to update Favorites.
-     */
-    data: XOR<FavoriteUpdateManyMutationInput, FavoriteUncheckedUpdateManyInput>
-    /**
-     * Filter which Favorites to update
-     */
-    where?: FavoriteWhereInput
-    /**
-     * Limit how many Favorites to update.
-     */
-    limit?: number
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: FavoriteIncludeUpdateManyAndReturn<ExtArgs> | null
-  }
-
-  /**
-   * Favorite upsert
-   */
-  export type FavoriteUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Favorite
-     */
-    select?: FavoriteSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Favorite
-     */
-    omit?: FavoriteOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: FavoriteInclude<ExtArgs> | null
-    /**
-     * The filter to search for the Favorite to update in case it exists.
-     */
-    where: FavoriteWhereUniqueInput
-    /**
-     * In case the Favorite found by the `where` argument doesn't exist, create a new Favorite with this data.
-     */
-    create: XOR<FavoriteCreateInput, FavoriteUncheckedCreateInput>
-    /**
-     * In case the Favorite was found with the provided `where` argument, update it with this data.
-     */
-    update: XOR<FavoriteUpdateInput, FavoriteUncheckedUpdateInput>
-  }
-
-  /**
-   * Favorite delete
-   */
-  export type FavoriteDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Favorite
-     */
-    select?: FavoriteSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Favorite
-     */
-    omit?: FavoriteOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: FavoriteInclude<ExtArgs> | null
-    /**
-     * Filter which Favorite to delete.
-     */
-    where: FavoriteWhereUniqueInput
-  }
-
-  /**
-   * Favorite deleteMany
-   */
-  export type FavoriteDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Filter which Favorites to delete
-     */
-    where?: FavoriteWhereInput
-    /**
-     * Limit how many Favorites to delete.
-     */
-    limit?: number
-  }
-
-  /**
-   * Favorite without action
-   */
-  export type FavoriteDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Favorite
-     */
-    select?: FavoriteSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Favorite
-     */
-    omit?: FavoriteOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: FavoriteInclude<ExtArgs> | null
-  }
-
-
-  /**
-   * Model Comment
-   */
-
-  export type AggregateComment = {
-    _count: CommentCountAggregateOutputType | null
-    _min: CommentMinAggregateOutputType | null
-    _max: CommentMaxAggregateOutputType | null
-  }
-
-  export type CommentMinAggregateOutputType = {
-    id: string | null
-    text: string | null
-    userId: string | null
-    movieId: string | null
-    createdAt: Date | null
-  }
-
-  export type CommentMaxAggregateOutputType = {
-    id: string | null
-    text: string | null
-    userId: string | null
-    movieId: string | null
-    createdAt: Date | null
-  }
-
-  export type CommentCountAggregateOutputType = {
-    id: number
-    text: number
-    userId: number
-    movieId: number
-    createdAt: number
-    _all: number
-  }
-
-
-  export type CommentMinAggregateInputType = {
-    id?: true
-    text?: true
-    userId?: true
-    movieId?: true
-    createdAt?: true
-  }
-
-  export type CommentMaxAggregateInputType = {
-    id?: true
-    text?: true
-    userId?: true
-    movieId?: true
-    createdAt?: true
-  }
-
-  export type CommentCountAggregateInputType = {
-    id?: true
-    text?: true
-    userId?: true
-    movieId?: true
-    createdAt?: true
-    _all?: true
-  }
-
-  export type CommentAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Filter which Comment to aggregate.
-     */
-    where?: CommentWhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of Comments to fetch.
-     */
-    orderBy?: CommentOrderByWithRelationInput | CommentOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the start position
-     */
-    cursor?: CommentWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` Comments from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` Comments.
-     */
-    skip?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Count returned Comments
-    **/
-    _count?: true | CommentCountAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to find the minimum value
-    **/
-    _min?: CommentMinAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to find the maximum value
-    **/
-    _max?: CommentMaxAggregateInputType
-  }
-
-  export type GetCommentAggregateType<T extends CommentAggregateArgs> = {
-        [P in keyof T & keyof AggregateComment]: P extends '_count' | 'count'
-      ? T[P] extends true
-        ? number
-        : GetScalarType<T[P], AggregateComment[P]>
-      : GetScalarType<T[P], AggregateComment[P]>
-  }
-
-
-
-
-  export type CommentGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: CommentWhereInput
-    orderBy?: CommentOrderByWithAggregationInput | CommentOrderByWithAggregationInput[]
-    by: CommentScalarFieldEnum[] | CommentScalarFieldEnum
-    having?: CommentScalarWhereWithAggregatesInput
-    take?: number
-    skip?: number
-    _count?: CommentCountAggregateInputType | true
-    _min?: CommentMinAggregateInputType
-    _max?: CommentMaxAggregateInputType
-  }
-
-  export type CommentGroupByOutputType = {
-    id: string
-    text: string
-    userId: string
-    movieId: string
-    createdAt: Date
-    _count: CommentCountAggregateOutputType | null
-    _min: CommentMinAggregateOutputType | null
-    _max: CommentMaxAggregateOutputType | null
-  }
-
-  type GetCommentGroupByPayload<T extends CommentGroupByArgs> = Prisma.PrismaPromise<
-    Array<
-      PickEnumerable<CommentGroupByOutputType, T['by']> &
-        {
-          [P in ((keyof T) & (keyof CommentGroupByOutputType))]: P extends '_count'
-            ? T[P] extends boolean
-              ? number
-              : GetScalarType<T[P], CommentGroupByOutputType[P]>
-            : GetScalarType<T[P], CommentGroupByOutputType[P]>
-        }
-      >
-    >
-
-
-  export type CommentSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
-    id?: boolean
-    text?: boolean
-    userId?: boolean
-    movieId?: boolean
-    createdAt?: boolean
-    user?: boolean | UserDefaultArgs<ExtArgs>
-    movie?: boolean | MovieDefaultArgs<ExtArgs>
-  }, ExtArgs["result"]["comment"]>
-
-  export type CommentSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
-    id?: boolean
-    text?: boolean
-    userId?: boolean
-    movieId?: boolean
-    createdAt?: boolean
-    user?: boolean | UserDefaultArgs<ExtArgs>
-    movie?: boolean | MovieDefaultArgs<ExtArgs>
-  }, ExtArgs["result"]["comment"]>
-
-  export type CommentSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
-    id?: boolean
-    text?: boolean
-    userId?: boolean
-    movieId?: boolean
-    createdAt?: boolean
-    user?: boolean | UserDefaultArgs<ExtArgs>
-    movie?: boolean | MovieDefaultArgs<ExtArgs>
-  }, ExtArgs["result"]["comment"]>
-
-  export type CommentSelectScalar = {
-    id?: boolean
-    text?: boolean
-    userId?: boolean
-    movieId?: boolean
-    createdAt?: boolean
-  }
-
-  export type CommentOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "text" | "userId" | "movieId" | "createdAt", ExtArgs["result"]["comment"]>
-  export type CommentInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    user?: boolean | UserDefaultArgs<ExtArgs>
-    movie?: boolean | MovieDefaultArgs<ExtArgs>
-  }
-  export type CommentIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    user?: boolean | UserDefaultArgs<ExtArgs>
-    movie?: boolean | MovieDefaultArgs<ExtArgs>
-  }
-  export type CommentIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    user?: boolean | UserDefaultArgs<ExtArgs>
-    movie?: boolean | MovieDefaultArgs<ExtArgs>
-  }
-
-  export type $CommentPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    name: "Comment"
-    objects: {
-      user: Prisma.$UserPayload<ExtArgs>
-      movie: Prisma.$MoviePayload<ExtArgs>
-    }
-    scalars: $Extensions.GetPayloadResult<{
-      id: string
-      text: string
-      userId: string
-      movieId: string
-      createdAt: Date
-    }, ExtArgs["result"]["comment"]>
-    composites: {}
-  }
-
-  type CommentGetPayload<S extends boolean | null | undefined | CommentDefaultArgs> = $Result.GetResult<Prisma.$CommentPayload, S>
-
-  type CommentCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
-    Omit<CommentFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
-      select?: CommentCountAggregateInputType | true
-    }
-
-  export interface CommentDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
-    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Comment'], meta: { name: 'Comment' } }
-    /**
-     * Find zero or one Comment that matches the filter.
-     * @param {CommentFindUniqueArgs} args - Arguments to find a Comment
-     * @example
-     * // Get one Comment
-     * const comment = await prisma.comment.findUnique({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     */
-    findUnique<T extends CommentFindUniqueArgs>(args: SelectSubset<T, CommentFindUniqueArgs<ExtArgs>>): Prisma__CommentClient<$Result.GetResult<Prisma.$CommentPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Find one Comment that matches the filter or throw an error with `error.code='P2025'`
-     * if no matches were found.
-     * @param {CommentFindUniqueOrThrowArgs} args - Arguments to find a Comment
-     * @example
-     * // Get one Comment
-     * const comment = await prisma.comment.findUniqueOrThrow({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     */
-    findUniqueOrThrow<T extends CommentFindUniqueOrThrowArgs>(args: SelectSubset<T, CommentFindUniqueOrThrowArgs<ExtArgs>>): Prisma__CommentClient<$Result.GetResult<Prisma.$CommentPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Find the first Comment that matches the filter.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {CommentFindFirstArgs} args - Arguments to find a Comment
-     * @example
-     * // Get one Comment
-     * const comment = await prisma.comment.findFirst({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     */
-    findFirst<T extends CommentFindFirstArgs>(args?: SelectSubset<T, CommentFindFirstArgs<ExtArgs>>): Prisma__CommentClient<$Result.GetResult<Prisma.$CommentPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Find the first Comment that matches the filter or
-     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {CommentFindFirstOrThrowArgs} args - Arguments to find a Comment
-     * @example
-     * // Get one Comment
-     * const comment = await prisma.comment.findFirstOrThrow({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     */
-    findFirstOrThrow<T extends CommentFindFirstOrThrowArgs>(args?: SelectSubset<T, CommentFindFirstOrThrowArgs<ExtArgs>>): Prisma__CommentClient<$Result.GetResult<Prisma.$CommentPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Find zero or more Comments that matches the filter.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {CommentFindManyArgs} args - Arguments to filter and select certain fields only.
-     * @example
-     * // Get all Comments
-     * const comments = await prisma.comment.findMany()
-     * 
-     * // Get first 10 Comments
-     * const comments = await prisma.comment.findMany({ take: 10 })
-     * 
-     * // Only select the `id`
-     * const commentWithIdOnly = await prisma.comment.findMany({ select: { id: true } })
-     * 
-     */
-    findMany<T extends CommentFindManyArgs>(args?: SelectSubset<T, CommentFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CommentPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
-
-    /**
-     * Create a Comment.
-     * @param {CommentCreateArgs} args - Arguments to create a Comment.
-     * @example
-     * // Create one Comment
-     * const Comment = await prisma.comment.create({
-     *   data: {
-     *     // ... data to create a Comment
-     *   }
-     * })
-     * 
-     */
-    create<T extends CommentCreateArgs>(args: SelectSubset<T, CommentCreateArgs<ExtArgs>>): Prisma__CommentClient<$Result.GetResult<Prisma.$CommentPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Create many Comments.
-     * @param {CommentCreateManyArgs} args - Arguments to create many Comments.
-     * @example
-     * // Create many Comments
-     * const comment = await prisma.comment.createMany({
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     *     
-     */
-    createMany<T extends CommentCreateManyArgs>(args?: SelectSubset<T, CommentCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
-
-    /**
-     * Create many Comments and returns the data saved in the database.
-     * @param {CommentCreateManyAndReturnArgs} args - Arguments to create many Comments.
-     * @example
-     * // Create many Comments
-     * const comment = await prisma.comment.createManyAndReturn({
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     * 
-     * // Create many Comments and only return the `id`
-     * const commentWithIdOnly = await prisma.comment.createManyAndReturn({
-     *   select: { id: true },
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * 
-     */
-    createManyAndReturn<T extends CommentCreateManyAndReturnArgs>(args?: SelectSubset<T, CommentCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CommentPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
-
-    /**
-     * Delete a Comment.
-     * @param {CommentDeleteArgs} args - Arguments to delete one Comment.
-     * @example
-     * // Delete one Comment
-     * const Comment = await prisma.comment.delete({
-     *   where: {
-     *     // ... filter to delete one Comment
-     *   }
-     * })
-     * 
-     */
-    delete<T extends CommentDeleteArgs>(args: SelectSubset<T, CommentDeleteArgs<ExtArgs>>): Prisma__CommentClient<$Result.GetResult<Prisma.$CommentPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Update one Comment.
-     * @param {CommentUpdateArgs} args - Arguments to update one Comment.
-     * @example
-     * // Update one Comment
-     * const comment = await prisma.comment.update({
-     *   where: {
-     *     // ... provide filter here
-     *   },
-     *   data: {
-     *     // ... provide data here
-     *   }
-     * })
-     * 
-     */
-    update<T extends CommentUpdateArgs>(args: SelectSubset<T, CommentUpdateArgs<ExtArgs>>): Prisma__CommentClient<$Result.GetResult<Prisma.$CommentPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Delete zero or more Comments.
-     * @param {CommentDeleteManyArgs} args - Arguments to filter Comments to delete.
-     * @example
-     * // Delete a few Comments
-     * const { count } = await prisma.comment.deleteMany({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     * 
-     */
-    deleteMany<T extends CommentDeleteManyArgs>(args?: SelectSubset<T, CommentDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
-
-    /**
-     * Update zero or more Comments.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {CommentUpdateManyArgs} args - Arguments to update one or more rows.
-     * @example
-     * // Update many Comments
-     * const comment = await prisma.comment.updateMany({
-     *   where: {
-     *     // ... provide filter here
-     *   },
-     *   data: {
-     *     // ... provide data here
-     *   }
-     * })
-     * 
-     */
-    updateMany<T extends CommentUpdateManyArgs>(args: SelectSubset<T, CommentUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
-
-    /**
-     * Update zero or more Comments and returns the data updated in the database.
-     * @param {CommentUpdateManyAndReturnArgs} args - Arguments to update many Comments.
-     * @example
-     * // Update many Comments
-     * const comment = await prisma.comment.updateManyAndReturn({
-     *   where: {
-     *     // ... provide filter here
-     *   },
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     * 
-     * // Update zero or more Comments and only return the `id`
-     * const commentWithIdOnly = await prisma.comment.updateManyAndReturn({
-     *   select: { id: true },
-     *   where: {
-     *     // ... provide filter here
-     *   },
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * 
-     */
-    updateManyAndReturn<T extends CommentUpdateManyAndReturnArgs>(args: SelectSubset<T, CommentUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CommentPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
-
-    /**
-     * Create or update one Comment.
-     * @param {CommentUpsertArgs} args - Arguments to update or create a Comment.
-     * @example
-     * // Update or create a Comment
-     * const comment = await prisma.comment.upsert({
-     *   create: {
-     *     // ... data to create a Comment
-     *   },
-     *   update: {
-     *     // ... in case it already exists, update
-     *   },
-     *   where: {
-     *     // ... the filter for the Comment we want to update
-     *   }
-     * })
-     */
-    upsert<T extends CommentUpsertArgs>(args: SelectSubset<T, CommentUpsertArgs<ExtArgs>>): Prisma__CommentClient<$Result.GetResult<Prisma.$CommentPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-
-    /**
-     * Count the number of Comments.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {CommentCountArgs} args - Arguments to filter Comments to count.
-     * @example
-     * // Count the number of Comments
-     * const count = await prisma.comment.count({
-     *   where: {
-     *     // ... the filter for the Comments we want to count
-     *   }
-     * })
-    **/
-    count<T extends CommentCountArgs>(
-      args?: Subset<T, CommentCountArgs>,
-    ): Prisma.PrismaPromise<
-      T extends $Utils.Record<'select', any>
-        ? T['select'] extends true
-          ? number
-          : GetScalarType<T['select'], CommentCountAggregateOutputType>
-        : number
-    >
-
-    /**
-     * Allows you to perform aggregations operations on a Comment.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {CommentAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
-     * @example
-     * // Ordered by age ascending
-     * // Where email contains prisma.io
-     * // Limited to the 10 users
-     * const aggregations = await prisma.user.aggregate({
-     *   _avg: {
-     *     age: true,
-     *   },
-     *   where: {
-     *     email: {
-     *       contains: "prisma.io",
-     *     },
-     *   },
-     *   orderBy: {
-     *     age: "asc",
-     *   },
-     *   take: 10,
-     * })
-    **/
-    aggregate<T extends CommentAggregateArgs>(args: Subset<T, CommentAggregateArgs>): Prisma.PrismaPromise<GetCommentAggregateType<T>>
-
-    /**
-     * Group by Comment.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {CommentGroupByArgs} args - Group by arguments.
-     * @example
-     * // Group by city, order by createdAt, get count
-     * const result = await prisma.user.groupBy({
-     *   by: ['city', 'createdAt'],
-     *   orderBy: {
-     *     createdAt: true
-     *   },
-     *   _count: {
-     *     _all: true
-     *   },
-     * })
-     * 
-    **/
-    groupBy<
-      T extends CommentGroupByArgs,
-      HasSelectOrTake extends Or<
-        Extends<'skip', Keys<T>>,
-        Extends<'take', Keys<T>>
-      >,
-      OrderByArg extends True extends HasSelectOrTake
-        ? { orderBy: CommentGroupByArgs['orderBy'] }
-        : { orderBy?: CommentGroupByArgs['orderBy'] },
-      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
-      ByFields extends MaybeTupleToUnion<T['by']>,
-      ByValid extends Has<ByFields, OrderFields>,
-      HavingFields extends GetHavingFields<T['having']>,
-      HavingValid extends Has<ByFields, HavingFields>,
-      ByEmpty extends T['by'] extends never[] ? True : False,
-      InputErrors extends ByEmpty extends True
-      ? `Error: "by" must not be empty.`
-      : HavingValid extends False
-      ? {
-          [P in HavingFields]: P extends ByFields
-            ? never
-            : P extends string
-            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
-            : [
-                Error,
-                'Field ',
-                P,
-                ` in "having" needs to be provided in "by"`,
-              ]
-        }[HavingFields]
-      : 'take' extends Keys<T>
-      ? 'orderBy' extends Keys<T>
-        ? ByValid extends True
-          ? {}
-          : {
-              [P in OrderFields]: P extends ByFields
-                ? never
-                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
-            }[OrderFields]
-        : 'Error: If you provide "take", you also need to provide "orderBy"'
-      : 'skip' extends Keys<T>
-      ? 'orderBy' extends Keys<T>
-        ? ByValid extends True
-          ? {}
-          : {
-              [P in OrderFields]: P extends ByFields
-                ? never
-                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
-            }[OrderFields]
-        : 'Error: If you provide "skip", you also need to provide "orderBy"'
-      : ByValid extends True
-      ? {}
-      : {
-          [P in OrderFields]: P extends ByFields
-            ? never
-            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
-        }[OrderFields]
-    >(args: SubsetIntersection<T, CommentGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetCommentGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
-  /**
-   * Fields of the Comment model
-   */
-  readonly fields: CommentFieldRefs;
-  }
-
-  /**
-   * The delegate class that acts as a "Promise-like" for Comment.
-   * Why is this prefixed with `Prisma__`?
-   * Because we want to prevent naming conflicts as mentioned in
-   * https://github.com/prisma/prisma-client-js/issues/707
-   */
-  export interface Prisma__CommentClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
-    readonly [Symbol.toStringTag]: "PrismaPromise"
-    user<T extends UserDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UserDefaultArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
-    movie<T extends MovieDefaultArgs<ExtArgs> = {}>(args?: Subset<T, MovieDefaultArgs<ExtArgs>>): Prisma__MovieClient<$Result.GetResult<Prisma.$MoviePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
-    /**
-     * Attaches callbacks for the resolution and/or rejection of the Promise.
-     * @param onfulfilled The callback to execute when the Promise is resolved.
-     * @param onrejected The callback to execute when the Promise is rejected.
-     * @returns A Promise for the completion of which ever callback is executed.
-     */
-    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
-    /**
-     * Attaches a callback for only the rejection of the Promise.
-     * @param onrejected The callback to execute when the Promise is rejected.
-     * @returns A Promise for the completion of the callback.
-     */
-    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
-    /**
-     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
-     * resolved value cannot be modified from the callback.
-     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
-     * @returns A Promise for the completion of the callback.
-     */
-    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
-  }
-
-
-
-
-  /**
-   * Fields of the Comment model
-   */
-  interface CommentFieldRefs {
-    readonly id: FieldRef<"Comment", 'String'>
-    readonly text: FieldRef<"Comment", 'String'>
-    readonly userId: FieldRef<"Comment", 'String'>
-    readonly movieId: FieldRef<"Comment", 'String'>
-    readonly createdAt: FieldRef<"Comment", 'DateTime'>
-  }
-    
-
-  // Custom InputTypes
-  /**
-   * Comment findUnique
-   */
-  export type CommentFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Comment
-     */
-    select?: CommentSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Comment
-     */
-    omit?: CommentOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: CommentInclude<ExtArgs> | null
-    /**
-     * Filter, which Comment to fetch.
-     */
-    where: CommentWhereUniqueInput
-  }
-
-  /**
-   * Comment findUniqueOrThrow
-   */
-  export type CommentFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Comment
-     */
-    select?: CommentSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Comment
-     */
-    omit?: CommentOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: CommentInclude<ExtArgs> | null
-    /**
-     * Filter, which Comment to fetch.
-     */
-    where: CommentWhereUniqueInput
-  }
-
-  /**
-   * Comment findFirst
-   */
-  export type CommentFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Comment
-     */
-    select?: CommentSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Comment
-     */
-    omit?: CommentOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: CommentInclude<ExtArgs> | null
-    /**
-     * Filter, which Comment to fetch.
-     */
-    where?: CommentWhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of Comments to fetch.
-     */
-    orderBy?: CommentOrderByWithRelationInput | CommentOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the position for searching for Comments.
-     */
-    cursor?: CommentWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` Comments from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` Comments.
-     */
-    skip?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
-     * 
-     * Filter by unique combinations of Comments.
-     */
-    distinct?: CommentScalarFieldEnum | CommentScalarFieldEnum[]
-  }
-
-  /**
-   * Comment findFirstOrThrow
-   */
-  export type CommentFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Comment
-     */
-    select?: CommentSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Comment
-     */
-    omit?: CommentOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: CommentInclude<ExtArgs> | null
-    /**
-     * Filter, which Comment to fetch.
-     */
-    where?: CommentWhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of Comments to fetch.
-     */
-    orderBy?: CommentOrderByWithRelationInput | CommentOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the position for searching for Comments.
-     */
-    cursor?: CommentWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` Comments from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` Comments.
-     */
-    skip?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
-     * 
-     * Filter by unique combinations of Comments.
-     */
-    distinct?: CommentScalarFieldEnum | CommentScalarFieldEnum[]
-  }
-
-  /**
-   * Comment findMany
-   */
-  export type CommentFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Comment
-     */
-    select?: CommentSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Comment
-     */
-    omit?: CommentOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: CommentInclude<ExtArgs> | null
-    /**
-     * Filter, which Comments to fetch.
-     */
-    where?: CommentWhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of Comments to fetch.
-     */
-    orderBy?: CommentOrderByWithRelationInput | CommentOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the position for listing Comments.
-     */
-    cursor?: CommentWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` Comments from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` Comments.
-     */
-    skip?: number
-    distinct?: CommentScalarFieldEnum | CommentScalarFieldEnum[]
-  }
-
-  /**
-   * Comment create
-   */
-  export type CommentCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Comment
-     */
-    select?: CommentSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Comment
-     */
-    omit?: CommentOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: CommentInclude<ExtArgs> | null
-    /**
-     * The data needed to create a Comment.
-     */
-    data: XOR<CommentCreateInput, CommentUncheckedCreateInput>
-  }
-
-  /**
-   * Comment createMany
-   */
-  export type CommentCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * The data used to create many Comments.
-     */
-    data: CommentCreateManyInput | CommentCreateManyInput[]
-  }
-
-  /**
-   * Comment createManyAndReturn
-   */
-  export type CommentCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Comment
-     */
-    select?: CommentSelectCreateManyAndReturn<ExtArgs> | null
-    /**
-     * Omit specific fields from the Comment
-     */
-    omit?: CommentOmit<ExtArgs> | null
-    /**
-     * The data used to create many Comments.
-     */
-    data: CommentCreateManyInput | CommentCreateManyInput[]
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: CommentIncludeCreateManyAndReturn<ExtArgs> | null
-  }
-
-  /**
-   * Comment update
-   */
-  export type CommentUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Comment
-     */
-    select?: CommentSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Comment
-     */
-    omit?: CommentOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: CommentInclude<ExtArgs> | null
-    /**
-     * The data needed to update a Comment.
-     */
-    data: XOR<CommentUpdateInput, CommentUncheckedUpdateInput>
-    /**
-     * Choose, which Comment to update.
-     */
-    where: CommentWhereUniqueInput
-  }
-
-  /**
-   * Comment updateMany
-   */
-  export type CommentUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * The data used to update Comments.
-     */
-    data: XOR<CommentUpdateManyMutationInput, CommentUncheckedUpdateManyInput>
-    /**
-     * Filter which Comments to update
-     */
-    where?: CommentWhereInput
-    /**
-     * Limit how many Comments to update.
-     */
-    limit?: number
-  }
-
-  /**
-   * Comment updateManyAndReturn
-   */
-  export type CommentUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Comment
-     */
-    select?: CommentSelectUpdateManyAndReturn<ExtArgs> | null
-    /**
-     * Omit specific fields from the Comment
-     */
-    omit?: CommentOmit<ExtArgs> | null
-    /**
-     * The data used to update Comments.
-     */
-    data: XOR<CommentUpdateManyMutationInput, CommentUncheckedUpdateManyInput>
-    /**
-     * Filter which Comments to update
-     */
-    where?: CommentWhereInput
-    /**
-     * Limit how many Comments to update.
-     */
-    limit?: number
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: CommentIncludeUpdateManyAndReturn<ExtArgs> | null
-  }
-
-  /**
-   * Comment upsert
-   */
-  export type CommentUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Comment
-     */
-    select?: CommentSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Comment
-     */
-    omit?: CommentOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: CommentInclude<ExtArgs> | null
-    /**
-     * The filter to search for the Comment to update in case it exists.
-     */
-    where: CommentWhereUniqueInput
-    /**
-     * In case the Comment found by the `where` argument doesn't exist, create a new Comment with this data.
-     */
-    create: XOR<CommentCreateInput, CommentUncheckedCreateInput>
-    /**
-     * In case the Comment was found with the provided `where` argument, update it with this data.
-     */
-    update: XOR<CommentUpdateInput, CommentUncheckedUpdateInput>
-  }
-
-  /**
-   * Comment delete
-   */
-  export type CommentDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Comment
-     */
-    select?: CommentSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Comment
-     */
-    omit?: CommentOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: CommentInclude<ExtArgs> | null
-    /**
-     * Filter which Comment to delete.
-     */
-    where: CommentWhereUniqueInput
-  }
-
-  /**
-   * Comment deleteMany
-   */
-  export type CommentDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Filter which Comments to delete
-     */
-    where?: CommentWhereInput
-    /**
-     * Limit how many Comments to delete.
-     */
-    limit?: number
-  }
-
-  /**
-   * Comment without action
-   */
-  export type CommentDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Comment
-     */
-    select?: CommentSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Comment
-     */
-    omit?: CommentOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: CommentInclude<ExtArgs> | null
   }
 
 
@@ -9167,45 +5745,23 @@ export namespace Prisma {
   export type AccountScalarFieldEnum = (typeof AccountScalarFieldEnum)[keyof typeof AccountScalarFieldEnum]
 
 
-  export const VerificationScalarFieldEnum: {
-    id: 'id',
-    identifier: 'identifier',
-    value: 'value',
-    expiresAt: 'expiresAt',
-    createdAt: 'createdAt',
-    updatedAt: 'updatedAt'
-  };
-
-  export type VerificationScalarFieldEnum = (typeof VerificationScalarFieldEnum)[keyof typeof VerificationScalarFieldEnum]
-
-
   export const MovieScalarFieldEnum: {
     id: 'id',
     title: 'title',
-    posterUrl: 'posterUrl'
-  };
-
-  export type MovieScalarFieldEnum = (typeof MovieScalarFieldEnum)[keyof typeof MovieScalarFieldEnum]
-
-
-  export const FavoriteScalarFieldEnum: {
-    id: 'id',
-    userId: 'userId',
-    movieId: 'movieId'
-  };
-
-  export type FavoriteScalarFieldEnum = (typeof FavoriteScalarFieldEnum)[keyof typeof FavoriteScalarFieldEnum]
-
-
-  export const CommentScalarFieldEnum: {
-    id: 'id',
-    text: 'text',
-    userId: 'userId',
-    movieId: 'movieId',
+    originalTitle: 'originalTitle',
+    overview: 'overview',
+    originalLang: 'originalLang',
+    releaseDate: 'releaseDate',
+    posterPath: 'posterPath',
+    backdropPath: 'backdropPath',
+    voteAverage: 'voteAverage',
+    voteCount: 'voteCount',
+    popularity: 'popularity',
+    adult: 'adult',
     createdAt: 'createdAt'
   };
 
-  export type CommentScalarFieldEnum = (typeof CommentScalarFieldEnum)[keyof typeof CommentScalarFieldEnum]
+  export type MovieScalarFieldEnum = (typeof MovieScalarFieldEnum)[keyof typeof MovieScalarFieldEnum]
 
 
   export const SortOrder: {
@@ -9255,6 +5811,13 @@ export namespace Prisma {
    */
   export type IntFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Int'>
     
+
+
+  /**
+   * Reference to a field of type 'Float'
+   */
+  export type FloatFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Float'>
+    
   /**
    * Deep Input Types
    */
@@ -9273,8 +5836,6 @@ export namespace Prisma {
     updatedAt?: DateTimeFilter<"User"> | Date | string
     sessions?: SessionListRelationFilter
     accounts?: AccountListRelationFilter
-    favorites?: FavoriteListRelationFilter
-    comments?: CommentListRelationFilter
   }
 
   export type UserOrderByWithRelationInput = {
@@ -9287,8 +5848,6 @@ export namespace Prisma {
     updatedAt?: SortOrder
     sessions?: SessionOrderByRelationAggregateInput
     accounts?: AccountOrderByRelationAggregateInput
-    favorites?: FavoriteOrderByRelationAggregateInput
-    comments?: CommentOrderByRelationAggregateInput
   }
 
   export type UserWhereUniqueInput = Prisma.AtLeast<{
@@ -9304,8 +5863,6 @@ export namespace Prisma {
     updatedAt?: DateTimeFilter<"User"> | Date | string
     sessions?: SessionListRelationFilter
     accounts?: AccountListRelationFilter
-    favorites?: FavoriteListRelationFilter
-    comments?: CommentListRelationFilter
   }, "id" | "email">
 
   export type UserOrderByWithAggregationInput = {
@@ -9499,215 +6056,98 @@ export namespace Prisma {
     updatedAt?: DateTimeWithAggregatesFilter<"Account"> | Date | string
   }
 
-  export type VerificationWhereInput = {
-    AND?: VerificationWhereInput | VerificationWhereInput[]
-    OR?: VerificationWhereInput[]
-    NOT?: VerificationWhereInput | VerificationWhereInput[]
-    id?: StringFilter<"Verification"> | string
-    identifier?: StringFilter<"Verification"> | string
-    value?: StringFilter<"Verification"> | string
-    expiresAt?: DateTimeFilter<"Verification"> | Date | string
-    createdAt?: DateTimeNullableFilter<"Verification"> | Date | string | null
-    updatedAt?: DateTimeNullableFilter<"Verification"> | Date | string | null
-  }
-
-  export type VerificationOrderByWithRelationInput = {
-    id?: SortOrder
-    identifier?: SortOrder
-    value?: SortOrder
-    expiresAt?: SortOrder
-    createdAt?: SortOrderInput | SortOrder
-    updatedAt?: SortOrderInput | SortOrder
-  }
-
-  export type VerificationWhereUniqueInput = Prisma.AtLeast<{
-    id?: string
-    AND?: VerificationWhereInput | VerificationWhereInput[]
-    OR?: VerificationWhereInput[]
-    NOT?: VerificationWhereInput | VerificationWhereInput[]
-    identifier?: StringFilter<"Verification"> | string
-    value?: StringFilter<"Verification"> | string
-    expiresAt?: DateTimeFilter<"Verification"> | Date | string
-    createdAt?: DateTimeNullableFilter<"Verification"> | Date | string | null
-    updatedAt?: DateTimeNullableFilter<"Verification"> | Date | string | null
-  }, "id">
-
-  export type VerificationOrderByWithAggregationInput = {
-    id?: SortOrder
-    identifier?: SortOrder
-    value?: SortOrder
-    expiresAt?: SortOrder
-    createdAt?: SortOrderInput | SortOrder
-    updatedAt?: SortOrderInput | SortOrder
-    _count?: VerificationCountOrderByAggregateInput
-    _max?: VerificationMaxOrderByAggregateInput
-    _min?: VerificationMinOrderByAggregateInput
-  }
-
-  export type VerificationScalarWhereWithAggregatesInput = {
-    AND?: VerificationScalarWhereWithAggregatesInput | VerificationScalarWhereWithAggregatesInput[]
-    OR?: VerificationScalarWhereWithAggregatesInput[]
-    NOT?: VerificationScalarWhereWithAggregatesInput | VerificationScalarWhereWithAggregatesInput[]
-    id?: StringWithAggregatesFilter<"Verification"> | string
-    identifier?: StringWithAggregatesFilter<"Verification"> | string
-    value?: StringWithAggregatesFilter<"Verification"> | string
-    expiresAt?: DateTimeWithAggregatesFilter<"Verification"> | Date | string
-    createdAt?: DateTimeNullableWithAggregatesFilter<"Verification"> | Date | string | null
-    updatedAt?: DateTimeNullableWithAggregatesFilter<"Verification"> | Date | string | null
-  }
-
   export type MovieWhereInput = {
     AND?: MovieWhereInput | MovieWhereInput[]
     OR?: MovieWhereInput[]
     NOT?: MovieWhereInput | MovieWhereInput[]
-    id?: StringFilter<"Movie"> | string
+    id?: IntFilter<"Movie"> | number
     title?: StringFilter<"Movie"> | string
-    posterUrl?: StringNullableFilter<"Movie"> | string | null
-    favorites?: FavoriteListRelationFilter
-    comments?: CommentListRelationFilter
+    originalTitle?: StringFilter<"Movie"> | string
+    overview?: StringFilter<"Movie"> | string
+    originalLang?: StringFilter<"Movie"> | string
+    releaseDate?: DateTimeFilter<"Movie"> | Date | string
+    posterPath?: StringFilter<"Movie"> | string
+    backdropPath?: StringFilter<"Movie"> | string
+    voteAverage?: FloatFilter<"Movie"> | number
+    voteCount?: IntFilter<"Movie"> | number
+    popularity?: FloatFilter<"Movie"> | number
+    adult?: BoolFilter<"Movie"> | boolean
+    createdAt?: DateTimeFilter<"Movie"> | Date | string
   }
 
   export type MovieOrderByWithRelationInput = {
     id?: SortOrder
     title?: SortOrder
-    posterUrl?: SortOrderInput | SortOrder
-    favorites?: FavoriteOrderByRelationAggregateInput
-    comments?: CommentOrderByRelationAggregateInput
+    originalTitle?: SortOrder
+    overview?: SortOrder
+    originalLang?: SortOrder
+    releaseDate?: SortOrder
+    posterPath?: SortOrder
+    backdropPath?: SortOrder
+    voteAverage?: SortOrder
+    voteCount?: SortOrder
+    popularity?: SortOrder
+    adult?: SortOrder
+    createdAt?: SortOrder
   }
 
   export type MovieWhereUniqueInput = Prisma.AtLeast<{
-    id?: string
+    id?: number
     AND?: MovieWhereInput | MovieWhereInput[]
     OR?: MovieWhereInput[]
     NOT?: MovieWhereInput | MovieWhereInput[]
     title?: StringFilter<"Movie"> | string
-    posterUrl?: StringNullableFilter<"Movie"> | string | null
-    favorites?: FavoriteListRelationFilter
-    comments?: CommentListRelationFilter
+    originalTitle?: StringFilter<"Movie"> | string
+    overview?: StringFilter<"Movie"> | string
+    originalLang?: StringFilter<"Movie"> | string
+    releaseDate?: DateTimeFilter<"Movie"> | Date | string
+    posterPath?: StringFilter<"Movie"> | string
+    backdropPath?: StringFilter<"Movie"> | string
+    voteAverage?: FloatFilter<"Movie"> | number
+    voteCount?: IntFilter<"Movie"> | number
+    popularity?: FloatFilter<"Movie"> | number
+    adult?: BoolFilter<"Movie"> | boolean
+    createdAt?: DateTimeFilter<"Movie"> | Date | string
   }, "id">
 
   export type MovieOrderByWithAggregationInput = {
     id?: SortOrder
     title?: SortOrder
-    posterUrl?: SortOrderInput | SortOrder
+    originalTitle?: SortOrder
+    overview?: SortOrder
+    originalLang?: SortOrder
+    releaseDate?: SortOrder
+    posterPath?: SortOrder
+    backdropPath?: SortOrder
+    voteAverage?: SortOrder
+    voteCount?: SortOrder
+    popularity?: SortOrder
+    adult?: SortOrder
+    createdAt?: SortOrder
     _count?: MovieCountOrderByAggregateInput
+    _avg?: MovieAvgOrderByAggregateInput
     _max?: MovieMaxOrderByAggregateInput
     _min?: MovieMinOrderByAggregateInput
+    _sum?: MovieSumOrderByAggregateInput
   }
 
   export type MovieScalarWhereWithAggregatesInput = {
     AND?: MovieScalarWhereWithAggregatesInput | MovieScalarWhereWithAggregatesInput[]
     OR?: MovieScalarWhereWithAggregatesInput[]
     NOT?: MovieScalarWhereWithAggregatesInput | MovieScalarWhereWithAggregatesInput[]
-    id?: StringWithAggregatesFilter<"Movie"> | string
+    id?: IntWithAggregatesFilter<"Movie"> | number
     title?: StringWithAggregatesFilter<"Movie"> | string
-    posterUrl?: StringNullableWithAggregatesFilter<"Movie"> | string | null
-  }
-
-  export type FavoriteWhereInput = {
-    AND?: FavoriteWhereInput | FavoriteWhereInput[]
-    OR?: FavoriteWhereInput[]
-    NOT?: FavoriteWhereInput | FavoriteWhereInput[]
-    id?: StringFilter<"Favorite"> | string
-    userId?: StringFilter<"Favorite"> | string
-    movieId?: StringFilter<"Favorite"> | string
-    user?: XOR<UserScalarRelationFilter, UserWhereInput>
-    movie?: XOR<MovieScalarRelationFilter, MovieWhereInput>
-  }
-
-  export type FavoriteOrderByWithRelationInput = {
-    id?: SortOrder
-    userId?: SortOrder
-    movieId?: SortOrder
-    user?: UserOrderByWithRelationInput
-    movie?: MovieOrderByWithRelationInput
-  }
-
-  export type FavoriteWhereUniqueInput = Prisma.AtLeast<{
-    id?: string
-    AND?: FavoriteWhereInput | FavoriteWhereInput[]
-    OR?: FavoriteWhereInput[]
-    NOT?: FavoriteWhereInput | FavoriteWhereInput[]
-    userId?: StringFilter<"Favorite"> | string
-    movieId?: StringFilter<"Favorite"> | string
-    user?: XOR<UserScalarRelationFilter, UserWhereInput>
-    movie?: XOR<MovieScalarRelationFilter, MovieWhereInput>
-  }, "id">
-
-  export type FavoriteOrderByWithAggregationInput = {
-    id?: SortOrder
-    userId?: SortOrder
-    movieId?: SortOrder
-    _count?: FavoriteCountOrderByAggregateInput
-    _max?: FavoriteMaxOrderByAggregateInput
-    _min?: FavoriteMinOrderByAggregateInput
-  }
-
-  export type FavoriteScalarWhereWithAggregatesInput = {
-    AND?: FavoriteScalarWhereWithAggregatesInput | FavoriteScalarWhereWithAggregatesInput[]
-    OR?: FavoriteScalarWhereWithAggregatesInput[]
-    NOT?: FavoriteScalarWhereWithAggregatesInput | FavoriteScalarWhereWithAggregatesInput[]
-    id?: StringWithAggregatesFilter<"Favorite"> | string
-    userId?: StringWithAggregatesFilter<"Favorite"> | string
-    movieId?: StringWithAggregatesFilter<"Favorite"> | string
-  }
-
-  export type CommentWhereInput = {
-    AND?: CommentWhereInput | CommentWhereInput[]
-    OR?: CommentWhereInput[]
-    NOT?: CommentWhereInput | CommentWhereInput[]
-    id?: StringFilter<"Comment"> | string
-    text?: StringFilter<"Comment"> | string
-    userId?: StringFilter<"Comment"> | string
-    movieId?: StringFilter<"Comment"> | string
-    createdAt?: DateTimeFilter<"Comment"> | Date | string
-    user?: XOR<UserScalarRelationFilter, UserWhereInput>
-    movie?: XOR<MovieScalarRelationFilter, MovieWhereInput>
-  }
-
-  export type CommentOrderByWithRelationInput = {
-    id?: SortOrder
-    text?: SortOrder
-    userId?: SortOrder
-    movieId?: SortOrder
-    createdAt?: SortOrder
-    user?: UserOrderByWithRelationInput
-    movie?: MovieOrderByWithRelationInput
-  }
-
-  export type CommentWhereUniqueInput = Prisma.AtLeast<{
-    id?: string
-    AND?: CommentWhereInput | CommentWhereInput[]
-    OR?: CommentWhereInput[]
-    NOT?: CommentWhereInput | CommentWhereInput[]
-    text?: StringFilter<"Comment"> | string
-    userId?: StringFilter<"Comment"> | string
-    movieId?: StringFilter<"Comment"> | string
-    createdAt?: DateTimeFilter<"Comment"> | Date | string
-    user?: XOR<UserScalarRelationFilter, UserWhereInput>
-    movie?: XOR<MovieScalarRelationFilter, MovieWhereInput>
-  }, "id">
-
-  export type CommentOrderByWithAggregationInput = {
-    id?: SortOrder
-    text?: SortOrder
-    userId?: SortOrder
-    movieId?: SortOrder
-    createdAt?: SortOrder
-    _count?: CommentCountOrderByAggregateInput
-    _max?: CommentMaxOrderByAggregateInput
-    _min?: CommentMinOrderByAggregateInput
-  }
-
-  export type CommentScalarWhereWithAggregatesInput = {
-    AND?: CommentScalarWhereWithAggregatesInput | CommentScalarWhereWithAggregatesInput[]
-    OR?: CommentScalarWhereWithAggregatesInput[]
-    NOT?: CommentScalarWhereWithAggregatesInput | CommentScalarWhereWithAggregatesInput[]
-    id?: StringWithAggregatesFilter<"Comment"> | string
-    text?: StringWithAggregatesFilter<"Comment"> | string
-    userId?: StringWithAggregatesFilter<"Comment"> | string
-    movieId?: StringWithAggregatesFilter<"Comment"> | string
-    createdAt?: DateTimeWithAggregatesFilter<"Comment"> | Date | string
+    originalTitle?: StringWithAggregatesFilter<"Movie"> | string
+    overview?: StringWithAggregatesFilter<"Movie"> | string
+    originalLang?: StringWithAggregatesFilter<"Movie"> | string
+    releaseDate?: DateTimeWithAggregatesFilter<"Movie"> | Date | string
+    posterPath?: StringWithAggregatesFilter<"Movie"> | string
+    backdropPath?: StringWithAggregatesFilter<"Movie"> | string
+    voteAverage?: FloatWithAggregatesFilter<"Movie"> | number
+    voteCount?: IntWithAggregatesFilter<"Movie"> | number
+    popularity?: FloatWithAggregatesFilter<"Movie"> | number
+    adult?: BoolWithAggregatesFilter<"Movie"> | boolean
+    createdAt?: DateTimeWithAggregatesFilter<"Movie"> | Date | string
   }
 
   export type UserCreateInput = {
@@ -9720,8 +6160,6 @@ export namespace Prisma {
     updatedAt: Date | string
     sessions?: SessionCreateNestedManyWithoutUserInput
     accounts?: AccountCreateNestedManyWithoutUserInput
-    favorites?: FavoriteCreateNestedManyWithoutUserInput
-    comments?: CommentCreateNestedManyWithoutUserInput
   }
 
   export type UserUncheckedCreateInput = {
@@ -9734,8 +6172,6 @@ export namespace Prisma {
     updatedAt: Date | string
     sessions?: SessionUncheckedCreateNestedManyWithoutUserInput
     accounts?: AccountUncheckedCreateNestedManyWithoutUserInput
-    favorites?: FavoriteUncheckedCreateNestedManyWithoutUserInput
-    comments?: CommentUncheckedCreateNestedManyWithoutUserInput
   }
 
   export type UserUpdateInput = {
@@ -9748,8 +6184,6 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     sessions?: SessionUpdateManyWithoutUserNestedInput
     accounts?: AccountUpdateManyWithoutUserNestedInput
-    favorites?: FavoriteUpdateManyWithoutUserNestedInput
-    comments?: CommentUpdateManyWithoutUserNestedInput
   }
 
   export type UserUncheckedUpdateInput = {
@@ -9762,8 +6196,6 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     sessions?: SessionUncheckedUpdateManyWithoutUserNestedInput
     accounts?: AccountUncheckedUpdateManyWithoutUserNestedInput
-    favorites?: FavoriteUncheckedUpdateManyWithoutUserNestedInput
-    comments?: CommentUncheckedUpdateManyWithoutUserNestedInput
   }
 
   export type UserCreateManyInput = {
@@ -9983,210 +6415,115 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
-  export type VerificationCreateInput = {
-    id: string
-    identifier: string
-    value: string
-    expiresAt: Date | string
-    createdAt?: Date | string | null
-    updatedAt?: Date | string | null
-  }
-
-  export type VerificationUncheckedCreateInput = {
-    id: string
-    identifier: string
-    value: string
-    expiresAt: Date | string
-    createdAt?: Date | string | null
-    updatedAt?: Date | string | null
-  }
-
-  export type VerificationUpdateInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    identifier?: StringFieldUpdateOperationsInput | string
-    value?: StringFieldUpdateOperationsInput | string
-    expiresAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    createdAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  }
-
-  export type VerificationUncheckedUpdateInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    identifier?: StringFieldUpdateOperationsInput | string
-    value?: StringFieldUpdateOperationsInput | string
-    expiresAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    createdAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  }
-
-  export type VerificationCreateManyInput = {
-    id: string
-    identifier: string
-    value: string
-    expiresAt: Date | string
-    createdAt?: Date | string | null
-    updatedAt?: Date | string | null
-  }
-
-  export type VerificationUpdateManyMutationInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    identifier?: StringFieldUpdateOperationsInput | string
-    value?: StringFieldUpdateOperationsInput | string
-    expiresAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    createdAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  }
-
-  export type VerificationUncheckedUpdateManyInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    identifier?: StringFieldUpdateOperationsInput | string
-    value?: StringFieldUpdateOperationsInput | string
-    expiresAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    createdAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  }
-
   export type MovieCreateInput = {
-    id: string
+    id: number
     title: string
-    posterUrl?: string | null
-    favorites?: FavoriteCreateNestedManyWithoutMovieInput
-    comments?: CommentCreateNestedManyWithoutMovieInput
+    originalTitle: string
+    overview: string
+    originalLang: string
+    releaseDate: Date | string
+    posterPath: string
+    backdropPath: string
+    voteAverage: number
+    voteCount: number
+    popularity: number
+    adult: boolean
+    createdAt?: Date | string
   }
 
   export type MovieUncheckedCreateInput = {
-    id: string
+    id: number
     title: string
-    posterUrl?: string | null
-    favorites?: FavoriteUncheckedCreateNestedManyWithoutMovieInput
-    comments?: CommentUncheckedCreateNestedManyWithoutMovieInput
+    originalTitle: string
+    overview: string
+    originalLang: string
+    releaseDate: Date | string
+    posterPath: string
+    backdropPath: string
+    voteAverage: number
+    voteCount: number
+    popularity: number
+    adult: boolean
+    createdAt?: Date | string
   }
 
   export type MovieUpdateInput = {
-    id?: StringFieldUpdateOperationsInput | string
+    id?: IntFieldUpdateOperationsInput | number
     title?: StringFieldUpdateOperationsInput | string
-    posterUrl?: NullableStringFieldUpdateOperationsInput | string | null
-    favorites?: FavoriteUpdateManyWithoutMovieNestedInput
-    comments?: CommentUpdateManyWithoutMovieNestedInput
+    originalTitle?: StringFieldUpdateOperationsInput | string
+    overview?: StringFieldUpdateOperationsInput | string
+    originalLang?: StringFieldUpdateOperationsInput | string
+    releaseDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    posterPath?: StringFieldUpdateOperationsInput | string
+    backdropPath?: StringFieldUpdateOperationsInput | string
+    voteAverage?: FloatFieldUpdateOperationsInput | number
+    voteCount?: IntFieldUpdateOperationsInput | number
+    popularity?: FloatFieldUpdateOperationsInput | number
+    adult?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type MovieUncheckedUpdateInput = {
-    id?: StringFieldUpdateOperationsInput | string
+    id?: IntFieldUpdateOperationsInput | number
     title?: StringFieldUpdateOperationsInput | string
-    posterUrl?: NullableStringFieldUpdateOperationsInput | string | null
-    favorites?: FavoriteUncheckedUpdateManyWithoutMovieNestedInput
-    comments?: CommentUncheckedUpdateManyWithoutMovieNestedInput
+    originalTitle?: StringFieldUpdateOperationsInput | string
+    overview?: StringFieldUpdateOperationsInput | string
+    originalLang?: StringFieldUpdateOperationsInput | string
+    releaseDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    posterPath?: StringFieldUpdateOperationsInput | string
+    backdropPath?: StringFieldUpdateOperationsInput | string
+    voteAverage?: FloatFieldUpdateOperationsInput | number
+    voteCount?: IntFieldUpdateOperationsInput | number
+    popularity?: FloatFieldUpdateOperationsInput | number
+    adult?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type MovieCreateManyInput = {
-    id: string
+    id: number
     title: string
-    posterUrl?: string | null
+    originalTitle: string
+    overview: string
+    originalLang: string
+    releaseDate: Date | string
+    posterPath: string
+    backdropPath: string
+    voteAverage: number
+    voteCount: number
+    popularity: number
+    adult: boolean
+    createdAt?: Date | string
   }
 
   export type MovieUpdateManyMutationInput = {
-    id?: StringFieldUpdateOperationsInput | string
+    id?: IntFieldUpdateOperationsInput | number
     title?: StringFieldUpdateOperationsInput | string
-    posterUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    originalTitle?: StringFieldUpdateOperationsInput | string
+    overview?: StringFieldUpdateOperationsInput | string
+    originalLang?: StringFieldUpdateOperationsInput | string
+    releaseDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    posterPath?: StringFieldUpdateOperationsInput | string
+    backdropPath?: StringFieldUpdateOperationsInput | string
+    voteAverage?: FloatFieldUpdateOperationsInput | number
+    voteCount?: IntFieldUpdateOperationsInput | number
+    popularity?: FloatFieldUpdateOperationsInput | number
+    adult?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type MovieUncheckedUpdateManyInput = {
-    id?: StringFieldUpdateOperationsInput | string
+    id?: IntFieldUpdateOperationsInput | number
     title?: StringFieldUpdateOperationsInput | string
-    posterUrl?: NullableStringFieldUpdateOperationsInput | string | null
-  }
-
-  export type FavoriteCreateInput = {
-    id?: string
-    user: UserCreateNestedOneWithoutFavoritesInput
-    movie: MovieCreateNestedOneWithoutFavoritesInput
-  }
-
-  export type FavoriteUncheckedCreateInput = {
-    id?: string
-    userId: string
-    movieId: string
-  }
-
-  export type FavoriteUpdateInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    user?: UserUpdateOneRequiredWithoutFavoritesNestedInput
-    movie?: MovieUpdateOneRequiredWithoutFavoritesNestedInput
-  }
-
-  export type FavoriteUncheckedUpdateInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    userId?: StringFieldUpdateOperationsInput | string
-    movieId?: StringFieldUpdateOperationsInput | string
-  }
-
-  export type FavoriteCreateManyInput = {
-    id?: string
-    userId: string
-    movieId: string
-  }
-
-  export type FavoriteUpdateManyMutationInput = {
-    id?: StringFieldUpdateOperationsInput | string
-  }
-
-  export type FavoriteUncheckedUpdateManyInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    userId?: StringFieldUpdateOperationsInput | string
-    movieId?: StringFieldUpdateOperationsInput | string
-  }
-
-  export type CommentCreateInput = {
-    id?: string
-    text: string
-    createdAt?: Date | string
-    user: UserCreateNestedOneWithoutCommentsInput
-    movie: MovieCreateNestedOneWithoutCommentsInput
-  }
-
-  export type CommentUncheckedCreateInput = {
-    id?: string
-    text: string
-    userId: string
-    movieId: string
-    createdAt?: Date | string
-  }
-
-  export type CommentUpdateInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    text?: StringFieldUpdateOperationsInput | string
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    user?: UserUpdateOneRequiredWithoutCommentsNestedInput
-    movie?: MovieUpdateOneRequiredWithoutCommentsNestedInput
-  }
-
-  export type CommentUncheckedUpdateInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    text?: StringFieldUpdateOperationsInput | string
-    userId?: StringFieldUpdateOperationsInput | string
-    movieId?: StringFieldUpdateOperationsInput | string
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-  }
-
-  export type CommentCreateManyInput = {
-    id?: string
-    text: string
-    userId: string
-    movieId: string
-    createdAt?: Date | string
-  }
-
-  export type CommentUpdateManyMutationInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    text?: StringFieldUpdateOperationsInput | string
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-  }
-
-  export type CommentUncheckedUpdateManyInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    text?: StringFieldUpdateOperationsInput | string
-    userId?: StringFieldUpdateOperationsInput | string
-    movieId?: StringFieldUpdateOperationsInput | string
+    originalTitle?: StringFieldUpdateOperationsInput | string
+    overview?: StringFieldUpdateOperationsInput | string
+    originalLang?: StringFieldUpdateOperationsInput | string
+    releaseDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    posterPath?: StringFieldUpdateOperationsInput | string
+    backdropPath?: StringFieldUpdateOperationsInput | string
+    voteAverage?: FloatFieldUpdateOperationsInput | number
+    voteCount?: IntFieldUpdateOperationsInput | number
+    popularity?: FloatFieldUpdateOperationsInput | number
+    adult?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
@@ -10246,18 +6583,6 @@ export namespace Prisma {
     none?: AccountWhereInput
   }
 
-  export type FavoriteListRelationFilter = {
-    every?: FavoriteWhereInput
-    some?: FavoriteWhereInput
-    none?: FavoriteWhereInput
-  }
-
-  export type CommentListRelationFilter = {
-    every?: CommentWhereInput
-    some?: CommentWhereInput
-    none?: CommentWhereInput
-  }
-
   export type SortOrderInput = {
     sort: SortOrder
     nulls?: NullsOrder
@@ -10268,14 +6593,6 @@ export namespace Prisma {
   }
 
   export type AccountOrderByRelationAggregateInput = {
-    _count?: SortOrder
-  }
-
-  export type FavoriteOrderByRelationAggregateInput = {
-    _count?: SortOrder
-  }
-
-  export type CommentOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
 
@@ -10476,96 +6793,120 @@ export namespace Prisma {
     _max?: NestedDateTimeNullableFilter<$PrismaModel>
   }
 
-  export type VerificationCountOrderByAggregateInput = {
-    id?: SortOrder
-    identifier?: SortOrder
-    value?: SortOrder
-    expiresAt?: SortOrder
-    createdAt?: SortOrder
-    updatedAt?: SortOrder
+  export type IntFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel>
+    in?: number[]
+    notIn?: number[]
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntFilter<$PrismaModel> | number
   }
 
-  export type VerificationMaxOrderByAggregateInput = {
-    id?: SortOrder
-    identifier?: SortOrder
-    value?: SortOrder
-    expiresAt?: SortOrder
-    createdAt?: SortOrder
-    updatedAt?: SortOrder
-  }
-
-  export type VerificationMinOrderByAggregateInput = {
-    id?: SortOrder
-    identifier?: SortOrder
-    value?: SortOrder
-    expiresAt?: SortOrder
-    createdAt?: SortOrder
-    updatedAt?: SortOrder
+  export type FloatFilter<$PrismaModel = never> = {
+    equals?: number | FloatFieldRefInput<$PrismaModel>
+    in?: number[]
+    notIn?: number[]
+    lt?: number | FloatFieldRefInput<$PrismaModel>
+    lte?: number | FloatFieldRefInput<$PrismaModel>
+    gt?: number | FloatFieldRefInput<$PrismaModel>
+    gte?: number | FloatFieldRefInput<$PrismaModel>
+    not?: NestedFloatFilter<$PrismaModel> | number
   }
 
   export type MovieCountOrderByAggregateInput = {
     id?: SortOrder
     title?: SortOrder
-    posterUrl?: SortOrder
+    originalTitle?: SortOrder
+    overview?: SortOrder
+    originalLang?: SortOrder
+    releaseDate?: SortOrder
+    posterPath?: SortOrder
+    backdropPath?: SortOrder
+    voteAverage?: SortOrder
+    voteCount?: SortOrder
+    popularity?: SortOrder
+    adult?: SortOrder
+    createdAt?: SortOrder
+  }
+
+  export type MovieAvgOrderByAggregateInput = {
+    id?: SortOrder
+    voteAverage?: SortOrder
+    voteCount?: SortOrder
+    popularity?: SortOrder
   }
 
   export type MovieMaxOrderByAggregateInput = {
     id?: SortOrder
     title?: SortOrder
-    posterUrl?: SortOrder
+    originalTitle?: SortOrder
+    overview?: SortOrder
+    originalLang?: SortOrder
+    releaseDate?: SortOrder
+    posterPath?: SortOrder
+    backdropPath?: SortOrder
+    voteAverage?: SortOrder
+    voteCount?: SortOrder
+    popularity?: SortOrder
+    adult?: SortOrder
+    createdAt?: SortOrder
   }
 
   export type MovieMinOrderByAggregateInput = {
     id?: SortOrder
     title?: SortOrder
-    posterUrl?: SortOrder
-  }
-
-  export type MovieScalarRelationFilter = {
-    is?: MovieWhereInput
-    isNot?: MovieWhereInput
-  }
-
-  export type FavoriteCountOrderByAggregateInput = {
-    id?: SortOrder
-    userId?: SortOrder
-    movieId?: SortOrder
-  }
-
-  export type FavoriteMaxOrderByAggregateInput = {
-    id?: SortOrder
-    userId?: SortOrder
-    movieId?: SortOrder
-  }
-
-  export type FavoriteMinOrderByAggregateInput = {
-    id?: SortOrder
-    userId?: SortOrder
-    movieId?: SortOrder
-  }
-
-  export type CommentCountOrderByAggregateInput = {
-    id?: SortOrder
-    text?: SortOrder
-    userId?: SortOrder
-    movieId?: SortOrder
+    originalTitle?: SortOrder
+    overview?: SortOrder
+    originalLang?: SortOrder
+    releaseDate?: SortOrder
+    posterPath?: SortOrder
+    backdropPath?: SortOrder
+    voteAverage?: SortOrder
+    voteCount?: SortOrder
+    popularity?: SortOrder
+    adult?: SortOrder
     createdAt?: SortOrder
   }
 
-  export type CommentMaxOrderByAggregateInput = {
+  export type MovieSumOrderByAggregateInput = {
     id?: SortOrder
-    text?: SortOrder
-    userId?: SortOrder
-    movieId?: SortOrder
-    createdAt?: SortOrder
+    voteAverage?: SortOrder
+    voteCount?: SortOrder
+    popularity?: SortOrder
   }
 
-  export type CommentMinOrderByAggregateInput = {
-    id?: SortOrder
-    text?: SortOrder
-    userId?: SortOrder
-    movieId?: SortOrder
-    createdAt?: SortOrder
+  export type IntWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel>
+    in?: number[]
+    notIn?: number[]
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntWithAggregatesFilter<$PrismaModel> | number
+    _count?: NestedIntFilter<$PrismaModel>
+    _avg?: NestedFloatFilter<$PrismaModel>
+    _sum?: NestedIntFilter<$PrismaModel>
+    _min?: NestedIntFilter<$PrismaModel>
+    _max?: NestedIntFilter<$PrismaModel>
+  }
+
+  export type FloatWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: number | FloatFieldRefInput<$PrismaModel>
+    in?: number[]
+    notIn?: number[]
+    lt?: number | FloatFieldRefInput<$PrismaModel>
+    lte?: number | FloatFieldRefInput<$PrismaModel>
+    gt?: number | FloatFieldRefInput<$PrismaModel>
+    gte?: number | FloatFieldRefInput<$PrismaModel>
+    not?: NestedFloatWithAggregatesFilter<$PrismaModel> | number
+    _count?: NestedIntFilter<$PrismaModel>
+    _avg?: NestedFloatFilter<$PrismaModel>
+    _sum?: NestedFloatFilter<$PrismaModel>
+    _min?: NestedFloatFilter<$PrismaModel>
+    _max?: NestedFloatFilter<$PrismaModel>
   }
 
   export type SessionCreateNestedManyWithoutUserInput = {
@@ -10582,20 +6923,6 @@ export namespace Prisma {
     connect?: AccountWhereUniqueInput | AccountWhereUniqueInput[]
   }
 
-  export type FavoriteCreateNestedManyWithoutUserInput = {
-    create?: XOR<FavoriteCreateWithoutUserInput, FavoriteUncheckedCreateWithoutUserInput> | FavoriteCreateWithoutUserInput[] | FavoriteUncheckedCreateWithoutUserInput[]
-    connectOrCreate?: FavoriteCreateOrConnectWithoutUserInput | FavoriteCreateOrConnectWithoutUserInput[]
-    createMany?: FavoriteCreateManyUserInputEnvelope
-    connect?: FavoriteWhereUniqueInput | FavoriteWhereUniqueInput[]
-  }
-
-  export type CommentCreateNestedManyWithoutUserInput = {
-    create?: XOR<CommentCreateWithoutUserInput, CommentUncheckedCreateWithoutUserInput> | CommentCreateWithoutUserInput[] | CommentUncheckedCreateWithoutUserInput[]
-    connectOrCreate?: CommentCreateOrConnectWithoutUserInput | CommentCreateOrConnectWithoutUserInput[]
-    createMany?: CommentCreateManyUserInputEnvelope
-    connect?: CommentWhereUniqueInput | CommentWhereUniqueInput[]
-  }
-
   export type SessionUncheckedCreateNestedManyWithoutUserInput = {
     create?: XOR<SessionCreateWithoutUserInput, SessionUncheckedCreateWithoutUserInput> | SessionCreateWithoutUserInput[] | SessionUncheckedCreateWithoutUserInput[]
     connectOrCreate?: SessionCreateOrConnectWithoutUserInput | SessionCreateOrConnectWithoutUserInput[]
@@ -10608,20 +6935,6 @@ export namespace Prisma {
     connectOrCreate?: AccountCreateOrConnectWithoutUserInput | AccountCreateOrConnectWithoutUserInput[]
     createMany?: AccountCreateManyUserInputEnvelope
     connect?: AccountWhereUniqueInput | AccountWhereUniqueInput[]
-  }
-
-  export type FavoriteUncheckedCreateNestedManyWithoutUserInput = {
-    create?: XOR<FavoriteCreateWithoutUserInput, FavoriteUncheckedCreateWithoutUserInput> | FavoriteCreateWithoutUserInput[] | FavoriteUncheckedCreateWithoutUserInput[]
-    connectOrCreate?: FavoriteCreateOrConnectWithoutUserInput | FavoriteCreateOrConnectWithoutUserInput[]
-    createMany?: FavoriteCreateManyUserInputEnvelope
-    connect?: FavoriteWhereUniqueInput | FavoriteWhereUniqueInput[]
-  }
-
-  export type CommentUncheckedCreateNestedManyWithoutUserInput = {
-    create?: XOR<CommentCreateWithoutUserInput, CommentUncheckedCreateWithoutUserInput> | CommentCreateWithoutUserInput[] | CommentUncheckedCreateWithoutUserInput[]
-    connectOrCreate?: CommentCreateOrConnectWithoutUserInput | CommentCreateOrConnectWithoutUserInput[]
-    createMany?: CommentCreateManyUserInputEnvelope
-    connect?: CommentWhereUniqueInput | CommentWhereUniqueInput[]
   }
 
   export type StringFieldUpdateOperationsInput = {
@@ -10668,34 +6981,6 @@ export namespace Prisma {
     deleteMany?: AccountScalarWhereInput | AccountScalarWhereInput[]
   }
 
-  export type FavoriteUpdateManyWithoutUserNestedInput = {
-    create?: XOR<FavoriteCreateWithoutUserInput, FavoriteUncheckedCreateWithoutUserInput> | FavoriteCreateWithoutUserInput[] | FavoriteUncheckedCreateWithoutUserInput[]
-    connectOrCreate?: FavoriteCreateOrConnectWithoutUserInput | FavoriteCreateOrConnectWithoutUserInput[]
-    upsert?: FavoriteUpsertWithWhereUniqueWithoutUserInput | FavoriteUpsertWithWhereUniqueWithoutUserInput[]
-    createMany?: FavoriteCreateManyUserInputEnvelope
-    set?: FavoriteWhereUniqueInput | FavoriteWhereUniqueInput[]
-    disconnect?: FavoriteWhereUniqueInput | FavoriteWhereUniqueInput[]
-    delete?: FavoriteWhereUniqueInput | FavoriteWhereUniqueInput[]
-    connect?: FavoriteWhereUniqueInput | FavoriteWhereUniqueInput[]
-    update?: FavoriteUpdateWithWhereUniqueWithoutUserInput | FavoriteUpdateWithWhereUniqueWithoutUserInput[]
-    updateMany?: FavoriteUpdateManyWithWhereWithoutUserInput | FavoriteUpdateManyWithWhereWithoutUserInput[]
-    deleteMany?: FavoriteScalarWhereInput | FavoriteScalarWhereInput[]
-  }
-
-  export type CommentUpdateManyWithoutUserNestedInput = {
-    create?: XOR<CommentCreateWithoutUserInput, CommentUncheckedCreateWithoutUserInput> | CommentCreateWithoutUserInput[] | CommentUncheckedCreateWithoutUserInput[]
-    connectOrCreate?: CommentCreateOrConnectWithoutUserInput | CommentCreateOrConnectWithoutUserInput[]
-    upsert?: CommentUpsertWithWhereUniqueWithoutUserInput | CommentUpsertWithWhereUniqueWithoutUserInput[]
-    createMany?: CommentCreateManyUserInputEnvelope
-    set?: CommentWhereUniqueInput | CommentWhereUniqueInput[]
-    disconnect?: CommentWhereUniqueInput | CommentWhereUniqueInput[]
-    delete?: CommentWhereUniqueInput | CommentWhereUniqueInput[]
-    connect?: CommentWhereUniqueInput | CommentWhereUniqueInput[]
-    update?: CommentUpdateWithWhereUniqueWithoutUserInput | CommentUpdateWithWhereUniqueWithoutUserInput[]
-    updateMany?: CommentUpdateManyWithWhereWithoutUserInput | CommentUpdateManyWithWhereWithoutUserInput[]
-    deleteMany?: CommentScalarWhereInput | CommentScalarWhereInput[]
-  }
-
   export type SessionUncheckedUpdateManyWithoutUserNestedInput = {
     create?: XOR<SessionCreateWithoutUserInput, SessionUncheckedCreateWithoutUserInput> | SessionCreateWithoutUserInput[] | SessionUncheckedCreateWithoutUserInput[]
     connectOrCreate?: SessionCreateOrConnectWithoutUserInput | SessionCreateOrConnectWithoutUserInput[]
@@ -10722,34 +7007,6 @@ export namespace Prisma {
     update?: AccountUpdateWithWhereUniqueWithoutUserInput | AccountUpdateWithWhereUniqueWithoutUserInput[]
     updateMany?: AccountUpdateManyWithWhereWithoutUserInput | AccountUpdateManyWithWhereWithoutUserInput[]
     deleteMany?: AccountScalarWhereInput | AccountScalarWhereInput[]
-  }
-
-  export type FavoriteUncheckedUpdateManyWithoutUserNestedInput = {
-    create?: XOR<FavoriteCreateWithoutUserInput, FavoriteUncheckedCreateWithoutUserInput> | FavoriteCreateWithoutUserInput[] | FavoriteUncheckedCreateWithoutUserInput[]
-    connectOrCreate?: FavoriteCreateOrConnectWithoutUserInput | FavoriteCreateOrConnectWithoutUserInput[]
-    upsert?: FavoriteUpsertWithWhereUniqueWithoutUserInput | FavoriteUpsertWithWhereUniqueWithoutUserInput[]
-    createMany?: FavoriteCreateManyUserInputEnvelope
-    set?: FavoriteWhereUniqueInput | FavoriteWhereUniqueInput[]
-    disconnect?: FavoriteWhereUniqueInput | FavoriteWhereUniqueInput[]
-    delete?: FavoriteWhereUniqueInput | FavoriteWhereUniqueInput[]
-    connect?: FavoriteWhereUniqueInput | FavoriteWhereUniqueInput[]
-    update?: FavoriteUpdateWithWhereUniqueWithoutUserInput | FavoriteUpdateWithWhereUniqueWithoutUserInput[]
-    updateMany?: FavoriteUpdateManyWithWhereWithoutUserInput | FavoriteUpdateManyWithWhereWithoutUserInput[]
-    deleteMany?: FavoriteScalarWhereInput | FavoriteScalarWhereInput[]
-  }
-
-  export type CommentUncheckedUpdateManyWithoutUserNestedInput = {
-    create?: XOR<CommentCreateWithoutUserInput, CommentUncheckedCreateWithoutUserInput> | CommentCreateWithoutUserInput[] | CommentUncheckedCreateWithoutUserInput[]
-    connectOrCreate?: CommentCreateOrConnectWithoutUserInput | CommentCreateOrConnectWithoutUserInput[]
-    upsert?: CommentUpsertWithWhereUniqueWithoutUserInput | CommentUpsertWithWhereUniqueWithoutUserInput[]
-    createMany?: CommentCreateManyUserInputEnvelope
-    set?: CommentWhereUniqueInput | CommentWhereUniqueInput[]
-    disconnect?: CommentWhereUniqueInput | CommentWhereUniqueInput[]
-    delete?: CommentWhereUniqueInput | CommentWhereUniqueInput[]
-    connect?: CommentWhereUniqueInput | CommentWhereUniqueInput[]
-    update?: CommentUpdateWithWhereUniqueWithoutUserInput | CommentUpdateWithWhereUniqueWithoutUserInput[]
-    updateMany?: CommentUpdateManyWithWhereWithoutUserInput | CommentUpdateManyWithWhereWithoutUserInput[]
-    deleteMany?: CommentScalarWhereInput | CommentScalarWhereInput[]
   }
 
   export type UserCreateNestedOneWithoutSessionsInput = {
@@ -10784,144 +7041,20 @@ export namespace Prisma {
     update?: XOR<XOR<UserUpdateToOneWithWhereWithoutAccountsInput, UserUpdateWithoutAccountsInput>, UserUncheckedUpdateWithoutAccountsInput>
   }
 
-  export type FavoriteCreateNestedManyWithoutMovieInput = {
-    create?: XOR<FavoriteCreateWithoutMovieInput, FavoriteUncheckedCreateWithoutMovieInput> | FavoriteCreateWithoutMovieInput[] | FavoriteUncheckedCreateWithoutMovieInput[]
-    connectOrCreate?: FavoriteCreateOrConnectWithoutMovieInput | FavoriteCreateOrConnectWithoutMovieInput[]
-    createMany?: FavoriteCreateManyMovieInputEnvelope
-    connect?: FavoriteWhereUniqueInput | FavoriteWhereUniqueInput[]
+  export type IntFieldUpdateOperationsInput = {
+    set?: number
+    increment?: number
+    decrement?: number
+    multiply?: number
+    divide?: number
   }
 
-  export type CommentCreateNestedManyWithoutMovieInput = {
-    create?: XOR<CommentCreateWithoutMovieInput, CommentUncheckedCreateWithoutMovieInput> | CommentCreateWithoutMovieInput[] | CommentUncheckedCreateWithoutMovieInput[]
-    connectOrCreate?: CommentCreateOrConnectWithoutMovieInput | CommentCreateOrConnectWithoutMovieInput[]
-    createMany?: CommentCreateManyMovieInputEnvelope
-    connect?: CommentWhereUniqueInput | CommentWhereUniqueInput[]
-  }
-
-  export type FavoriteUncheckedCreateNestedManyWithoutMovieInput = {
-    create?: XOR<FavoriteCreateWithoutMovieInput, FavoriteUncheckedCreateWithoutMovieInput> | FavoriteCreateWithoutMovieInput[] | FavoriteUncheckedCreateWithoutMovieInput[]
-    connectOrCreate?: FavoriteCreateOrConnectWithoutMovieInput | FavoriteCreateOrConnectWithoutMovieInput[]
-    createMany?: FavoriteCreateManyMovieInputEnvelope
-    connect?: FavoriteWhereUniqueInput | FavoriteWhereUniqueInput[]
-  }
-
-  export type CommentUncheckedCreateNestedManyWithoutMovieInput = {
-    create?: XOR<CommentCreateWithoutMovieInput, CommentUncheckedCreateWithoutMovieInput> | CommentCreateWithoutMovieInput[] | CommentUncheckedCreateWithoutMovieInput[]
-    connectOrCreate?: CommentCreateOrConnectWithoutMovieInput | CommentCreateOrConnectWithoutMovieInput[]
-    createMany?: CommentCreateManyMovieInputEnvelope
-    connect?: CommentWhereUniqueInput | CommentWhereUniqueInput[]
-  }
-
-  export type FavoriteUpdateManyWithoutMovieNestedInput = {
-    create?: XOR<FavoriteCreateWithoutMovieInput, FavoriteUncheckedCreateWithoutMovieInput> | FavoriteCreateWithoutMovieInput[] | FavoriteUncheckedCreateWithoutMovieInput[]
-    connectOrCreate?: FavoriteCreateOrConnectWithoutMovieInput | FavoriteCreateOrConnectWithoutMovieInput[]
-    upsert?: FavoriteUpsertWithWhereUniqueWithoutMovieInput | FavoriteUpsertWithWhereUniqueWithoutMovieInput[]
-    createMany?: FavoriteCreateManyMovieInputEnvelope
-    set?: FavoriteWhereUniqueInput | FavoriteWhereUniqueInput[]
-    disconnect?: FavoriteWhereUniqueInput | FavoriteWhereUniqueInput[]
-    delete?: FavoriteWhereUniqueInput | FavoriteWhereUniqueInput[]
-    connect?: FavoriteWhereUniqueInput | FavoriteWhereUniqueInput[]
-    update?: FavoriteUpdateWithWhereUniqueWithoutMovieInput | FavoriteUpdateWithWhereUniqueWithoutMovieInput[]
-    updateMany?: FavoriteUpdateManyWithWhereWithoutMovieInput | FavoriteUpdateManyWithWhereWithoutMovieInput[]
-    deleteMany?: FavoriteScalarWhereInput | FavoriteScalarWhereInput[]
-  }
-
-  export type CommentUpdateManyWithoutMovieNestedInput = {
-    create?: XOR<CommentCreateWithoutMovieInput, CommentUncheckedCreateWithoutMovieInput> | CommentCreateWithoutMovieInput[] | CommentUncheckedCreateWithoutMovieInput[]
-    connectOrCreate?: CommentCreateOrConnectWithoutMovieInput | CommentCreateOrConnectWithoutMovieInput[]
-    upsert?: CommentUpsertWithWhereUniqueWithoutMovieInput | CommentUpsertWithWhereUniqueWithoutMovieInput[]
-    createMany?: CommentCreateManyMovieInputEnvelope
-    set?: CommentWhereUniqueInput | CommentWhereUniqueInput[]
-    disconnect?: CommentWhereUniqueInput | CommentWhereUniqueInput[]
-    delete?: CommentWhereUniqueInput | CommentWhereUniqueInput[]
-    connect?: CommentWhereUniqueInput | CommentWhereUniqueInput[]
-    update?: CommentUpdateWithWhereUniqueWithoutMovieInput | CommentUpdateWithWhereUniqueWithoutMovieInput[]
-    updateMany?: CommentUpdateManyWithWhereWithoutMovieInput | CommentUpdateManyWithWhereWithoutMovieInput[]
-    deleteMany?: CommentScalarWhereInput | CommentScalarWhereInput[]
-  }
-
-  export type FavoriteUncheckedUpdateManyWithoutMovieNestedInput = {
-    create?: XOR<FavoriteCreateWithoutMovieInput, FavoriteUncheckedCreateWithoutMovieInput> | FavoriteCreateWithoutMovieInput[] | FavoriteUncheckedCreateWithoutMovieInput[]
-    connectOrCreate?: FavoriteCreateOrConnectWithoutMovieInput | FavoriteCreateOrConnectWithoutMovieInput[]
-    upsert?: FavoriteUpsertWithWhereUniqueWithoutMovieInput | FavoriteUpsertWithWhereUniqueWithoutMovieInput[]
-    createMany?: FavoriteCreateManyMovieInputEnvelope
-    set?: FavoriteWhereUniqueInput | FavoriteWhereUniqueInput[]
-    disconnect?: FavoriteWhereUniqueInput | FavoriteWhereUniqueInput[]
-    delete?: FavoriteWhereUniqueInput | FavoriteWhereUniqueInput[]
-    connect?: FavoriteWhereUniqueInput | FavoriteWhereUniqueInput[]
-    update?: FavoriteUpdateWithWhereUniqueWithoutMovieInput | FavoriteUpdateWithWhereUniqueWithoutMovieInput[]
-    updateMany?: FavoriteUpdateManyWithWhereWithoutMovieInput | FavoriteUpdateManyWithWhereWithoutMovieInput[]
-    deleteMany?: FavoriteScalarWhereInput | FavoriteScalarWhereInput[]
-  }
-
-  export type CommentUncheckedUpdateManyWithoutMovieNestedInput = {
-    create?: XOR<CommentCreateWithoutMovieInput, CommentUncheckedCreateWithoutMovieInput> | CommentCreateWithoutMovieInput[] | CommentUncheckedCreateWithoutMovieInput[]
-    connectOrCreate?: CommentCreateOrConnectWithoutMovieInput | CommentCreateOrConnectWithoutMovieInput[]
-    upsert?: CommentUpsertWithWhereUniqueWithoutMovieInput | CommentUpsertWithWhereUniqueWithoutMovieInput[]
-    createMany?: CommentCreateManyMovieInputEnvelope
-    set?: CommentWhereUniqueInput | CommentWhereUniqueInput[]
-    disconnect?: CommentWhereUniqueInput | CommentWhereUniqueInput[]
-    delete?: CommentWhereUniqueInput | CommentWhereUniqueInput[]
-    connect?: CommentWhereUniqueInput | CommentWhereUniqueInput[]
-    update?: CommentUpdateWithWhereUniqueWithoutMovieInput | CommentUpdateWithWhereUniqueWithoutMovieInput[]
-    updateMany?: CommentUpdateManyWithWhereWithoutMovieInput | CommentUpdateManyWithWhereWithoutMovieInput[]
-    deleteMany?: CommentScalarWhereInput | CommentScalarWhereInput[]
-  }
-
-  export type UserCreateNestedOneWithoutFavoritesInput = {
-    create?: XOR<UserCreateWithoutFavoritesInput, UserUncheckedCreateWithoutFavoritesInput>
-    connectOrCreate?: UserCreateOrConnectWithoutFavoritesInput
-    connect?: UserWhereUniqueInput
-  }
-
-  export type MovieCreateNestedOneWithoutFavoritesInput = {
-    create?: XOR<MovieCreateWithoutFavoritesInput, MovieUncheckedCreateWithoutFavoritesInput>
-    connectOrCreate?: MovieCreateOrConnectWithoutFavoritesInput
-    connect?: MovieWhereUniqueInput
-  }
-
-  export type UserUpdateOneRequiredWithoutFavoritesNestedInput = {
-    create?: XOR<UserCreateWithoutFavoritesInput, UserUncheckedCreateWithoutFavoritesInput>
-    connectOrCreate?: UserCreateOrConnectWithoutFavoritesInput
-    upsert?: UserUpsertWithoutFavoritesInput
-    connect?: UserWhereUniqueInput
-    update?: XOR<XOR<UserUpdateToOneWithWhereWithoutFavoritesInput, UserUpdateWithoutFavoritesInput>, UserUncheckedUpdateWithoutFavoritesInput>
-  }
-
-  export type MovieUpdateOneRequiredWithoutFavoritesNestedInput = {
-    create?: XOR<MovieCreateWithoutFavoritesInput, MovieUncheckedCreateWithoutFavoritesInput>
-    connectOrCreate?: MovieCreateOrConnectWithoutFavoritesInput
-    upsert?: MovieUpsertWithoutFavoritesInput
-    connect?: MovieWhereUniqueInput
-    update?: XOR<XOR<MovieUpdateToOneWithWhereWithoutFavoritesInput, MovieUpdateWithoutFavoritesInput>, MovieUncheckedUpdateWithoutFavoritesInput>
-  }
-
-  export type UserCreateNestedOneWithoutCommentsInput = {
-    create?: XOR<UserCreateWithoutCommentsInput, UserUncheckedCreateWithoutCommentsInput>
-    connectOrCreate?: UserCreateOrConnectWithoutCommentsInput
-    connect?: UserWhereUniqueInput
-  }
-
-  export type MovieCreateNestedOneWithoutCommentsInput = {
-    create?: XOR<MovieCreateWithoutCommentsInput, MovieUncheckedCreateWithoutCommentsInput>
-    connectOrCreate?: MovieCreateOrConnectWithoutCommentsInput
-    connect?: MovieWhereUniqueInput
-  }
-
-  export type UserUpdateOneRequiredWithoutCommentsNestedInput = {
-    create?: XOR<UserCreateWithoutCommentsInput, UserUncheckedCreateWithoutCommentsInput>
-    connectOrCreate?: UserCreateOrConnectWithoutCommentsInput
-    upsert?: UserUpsertWithoutCommentsInput
-    connect?: UserWhereUniqueInput
-    update?: XOR<XOR<UserUpdateToOneWithWhereWithoutCommentsInput, UserUpdateWithoutCommentsInput>, UserUncheckedUpdateWithoutCommentsInput>
-  }
-
-  export type MovieUpdateOneRequiredWithoutCommentsNestedInput = {
-    create?: XOR<MovieCreateWithoutCommentsInput, MovieUncheckedCreateWithoutCommentsInput>
-    connectOrCreate?: MovieCreateOrConnectWithoutCommentsInput
-    upsert?: MovieUpsertWithoutCommentsInput
-    connect?: MovieWhereUniqueInput
-    update?: XOR<XOR<MovieUpdateToOneWithWhereWithoutCommentsInput, MovieUpdateWithoutCommentsInput>, MovieUncheckedUpdateWithoutCommentsInput>
+  export type FloatFieldUpdateOperationsInput = {
+    set?: number
+    increment?: number
+    decrement?: number
+    multiply?: number
+    divide?: number
   }
 
   export type NestedStringFilter<$PrismaModel = never> = {
@@ -11071,6 +7204,49 @@ export namespace Prisma {
     _max?: NestedDateTimeNullableFilter<$PrismaModel>
   }
 
+  export type NestedFloatFilter<$PrismaModel = never> = {
+    equals?: number | FloatFieldRefInput<$PrismaModel>
+    in?: number[]
+    notIn?: number[]
+    lt?: number | FloatFieldRefInput<$PrismaModel>
+    lte?: number | FloatFieldRefInput<$PrismaModel>
+    gt?: number | FloatFieldRefInput<$PrismaModel>
+    gte?: number | FloatFieldRefInput<$PrismaModel>
+    not?: NestedFloatFilter<$PrismaModel> | number
+  }
+
+  export type NestedIntWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel>
+    in?: number[]
+    notIn?: number[]
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntWithAggregatesFilter<$PrismaModel> | number
+    _count?: NestedIntFilter<$PrismaModel>
+    _avg?: NestedFloatFilter<$PrismaModel>
+    _sum?: NestedIntFilter<$PrismaModel>
+    _min?: NestedIntFilter<$PrismaModel>
+    _max?: NestedIntFilter<$PrismaModel>
+  }
+
+  export type NestedFloatWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: number | FloatFieldRefInput<$PrismaModel>
+    in?: number[]
+    notIn?: number[]
+    lt?: number | FloatFieldRefInput<$PrismaModel>
+    lte?: number | FloatFieldRefInput<$PrismaModel>
+    gt?: number | FloatFieldRefInput<$PrismaModel>
+    gte?: number | FloatFieldRefInput<$PrismaModel>
+    not?: NestedFloatWithAggregatesFilter<$PrismaModel> | number
+    _count?: NestedIntFilter<$PrismaModel>
+    _avg?: NestedFloatFilter<$PrismaModel>
+    _sum?: NestedFloatFilter<$PrismaModel>
+    _min?: NestedFloatFilter<$PrismaModel>
+    _max?: NestedFloatFilter<$PrismaModel>
+  }
+
   export type SessionCreateWithoutUserInput = {
     id: string
     expiresAt: Date | string
@@ -11139,48 +7315,6 @@ export namespace Prisma {
     data: AccountCreateManyUserInput | AccountCreateManyUserInput[]
   }
 
-  export type FavoriteCreateWithoutUserInput = {
-    id?: string
-    movie: MovieCreateNestedOneWithoutFavoritesInput
-  }
-
-  export type FavoriteUncheckedCreateWithoutUserInput = {
-    id?: string
-    movieId: string
-  }
-
-  export type FavoriteCreateOrConnectWithoutUserInput = {
-    where: FavoriteWhereUniqueInput
-    create: XOR<FavoriteCreateWithoutUserInput, FavoriteUncheckedCreateWithoutUserInput>
-  }
-
-  export type FavoriteCreateManyUserInputEnvelope = {
-    data: FavoriteCreateManyUserInput | FavoriteCreateManyUserInput[]
-  }
-
-  export type CommentCreateWithoutUserInput = {
-    id?: string
-    text: string
-    createdAt?: Date | string
-    movie: MovieCreateNestedOneWithoutCommentsInput
-  }
-
-  export type CommentUncheckedCreateWithoutUserInput = {
-    id?: string
-    text: string
-    movieId: string
-    createdAt?: Date | string
-  }
-
-  export type CommentCreateOrConnectWithoutUserInput = {
-    where: CommentWhereUniqueInput
-    create: XOR<CommentCreateWithoutUserInput, CommentUncheckedCreateWithoutUserInput>
-  }
-
-  export type CommentCreateManyUserInputEnvelope = {
-    data: CommentCreateManyUserInput | CommentCreateManyUserInput[]
-  }
-
   export type SessionUpsertWithWhereUniqueWithoutUserInput = {
     where: SessionWhereUniqueInput
     update: XOR<SessionUpdateWithoutUserInput, SessionUncheckedUpdateWithoutUserInput>
@@ -11246,58 +7380,6 @@ export namespace Prisma {
     updatedAt?: DateTimeFilter<"Account"> | Date | string
   }
 
-  export type FavoriteUpsertWithWhereUniqueWithoutUserInput = {
-    where: FavoriteWhereUniqueInput
-    update: XOR<FavoriteUpdateWithoutUserInput, FavoriteUncheckedUpdateWithoutUserInput>
-    create: XOR<FavoriteCreateWithoutUserInput, FavoriteUncheckedCreateWithoutUserInput>
-  }
-
-  export type FavoriteUpdateWithWhereUniqueWithoutUserInput = {
-    where: FavoriteWhereUniqueInput
-    data: XOR<FavoriteUpdateWithoutUserInput, FavoriteUncheckedUpdateWithoutUserInput>
-  }
-
-  export type FavoriteUpdateManyWithWhereWithoutUserInput = {
-    where: FavoriteScalarWhereInput
-    data: XOR<FavoriteUpdateManyMutationInput, FavoriteUncheckedUpdateManyWithoutUserInput>
-  }
-
-  export type FavoriteScalarWhereInput = {
-    AND?: FavoriteScalarWhereInput | FavoriteScalarWhereInput[]
-    OR?: FavoriteScalarWhereInput[]
-    NOT?: FavoriteScalarWhereInput | FavoriteScalarWhereInput[]
-    id?: StringFilter<"Favorite"> | string
-    userId?: StringFilter<"Favorite"> | string
-    movieId?: StringFilter<"Favorite"> | string
-  }
-
-  export type CommentUpsertWithWhereUniqueWithoutUserInput = {
-    where: CommentWhereUniqueInput
-    update: XOR<CommentUpdateWithoutUserInput, CommentUncheckedUpdateWithoutUserInput>
-    create: XOR<CommentCreateWithoutUserInput, CommentUncheckedCreateWithoutUserInput>
-  }
-
-  export type CommentUpdateWithWhereUniqueWithoutUserInput = {
-    where: CommentWhereUniqueInput
-    data: XOR<CommentUpdateWithoutUserInput, CommentUncheckedUpdateWithoutUserInput>
-  }
-
-  export type CommentUpdateManyWithWhereWithoutUserInput = {
-    where: CommentScalarWhereInput
-    data: XOR<CommentUpdateManyMutationInput, CommentUncheckedUpdateManyWithoutUserInput>
-  }
-
-  export type CommentScalarWhereInput = {
-    AND?: CommentScalarWhereInput | CommentScalarWhereInput[]
-    OR?: CommentScalarWhereInput[]
-    NOT?: CommentScalarWhereInput | CommentScalarWhereInput[]
-    id?: StringFilter<"Comment"> | string
-    text?: StringFilter<"Comment"> | string
-    userId?: StringFilter<"Comment"> | string
-    movieId?: StringFilter<"Comment"> | string
-    createdAt?: DateTimeFilter<"Comment"> | Date | string
-  }
-
   export type UserCreateWithoutSessionsInput = {
     id: string
     name: string
@@ -11307,8 +7389,6 @@ export namespace Prisma {
     createdAt: Date | string
     updatedAt: Date | string
     accounts?: AccountCreateNestedManyWithoutUserInput
-    favorites?: FavoriteCreateNestedManyWithoutUserInput
-    comments?: CommentCreateNestedManyWithoutUserInput
   }
 
   export type UserUncheckedCreateWithoutSessionsInput = {
@@ -11320,8 +7400,6 @@ export namespace Prisma {
     createdAt: Date | string
     updatedAt: Date | string
     accounts?: AccountUncheckedCreateNestedManyWithoutUserInput
-    favorites?: FavoriteUncheckedCreateNestedManyWithoutUserInput
-    comments?: CommentUncheckedCreateNestedManyWithoutUserInput
   }
 
   export type UserCreateOrConnectWithoutSessionsInput = {
@@ -11349,8 +7427,6 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     accounts?: AccountUpdateManyWithoutUserNestedInput
-    favorites?: FavoriteUpdateManyWithoutUserNestedInput
-    comments?: CommentUpdateManyWithoutUserNestedInput
   }
 
   export type UserUncheckedUpdateWithoutSessionsInput = {
@@ -11362,8 +7438,6 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     accounts?: AccountUncheckedUpdateManyWithoutUserNestedInput
-    favorites?: FavoriteUncheckedUpdateManyWithoutUserNestedInput
-    comments?: CommentUncheckedUpdateManyWithoutUserNestedInput
   }
 
   export type UserCreateWithoutAccountsInput = {
@@ -11375,8 +7449,6 @@ export namespace Prisma {
     createdAt: Date | string
     updatedAt: Date | string
     sessions?: SessionCreateNestedManyWithoutUserInput
-    favorites?: FavoriteCreateNestedManyWithoutUserInput
-    comments?: CommentCreateNestedManyWithoutUserInput
   }
 
   export type UserUncheckedCreateWithoutAccountsInput = {
@@ -11388,8 +7460,6 @@ export namespace Prisma {
     createdAt: Date | string
     updatedAt: Date | string
     sessions?: SessionUncheckedCreateNestedManyWithoutUserInput
-    favorites?: FavoriteUncheckedCreateNestedManyWithoutUserInput
-    comments?: CommentUncheckedCreateNestedManyWithoutUserInput
   }
 
   export type UserCreateOrConnectWithoutAccountsInput = {
@@ -11417,8 +7487,6 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     sessions?: SessionUpdateManyWithoutUserNestedInput
-    favorites?: FavoriteUpdateManyWithoutUserNestedInput
-    comments?: CommentUpdateManyWithoutUserNestedInput
   }
 
   export type UserUncheckedUpdateWithoutAccountsInput = {
@@ -11430,306 +7498,6 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     sessions?: SessionUncheckedUpdateManyWithoutUserNestedInput
-    favorites?: FavoriteUncheckedUpdateManyWithoutUserNestedInput
-    comments?: CommentUncheckedUpdateManyWithoutUserNestedInput
-  }
-
-  export type FavoriteCreateWithoutMovieInput = {
-    id?: string
-    user: UserCreateNestedOneWithoutFavoritesInput
-  }
-
-  export type FavoriteUncheckedCreateWithoutMovieInput = {
-    id?: string
-    userId: string
-  }
-
-  export type FavoriteCreateOrConnectWithoutMovieInput = {
-    where: FavoriteWhereUniqueInput
-    create: XOR<FavoriteCreateWithoutMovieInput, FavoriteUncheckedCreateWithoutMovieInput>
-  }
-
-  export type FavoriteCreateManyMovieInputEnvelope = {
-    data: FavoriteCreateManyMovieInput | FavoriteCreateManyMovieInput[]
-  }
-
-  export type CommentCreateWithoutMovieInput = {
-    id?: string
-    text: string
-    createdAt?: Date | string
-    user: UserCreateNestedOneWithoutCommentsInput
-  }
-
-  export type CommentUncheckedCreateWithoutMovieInput = {
-    id?: string
-    text: string
-    userId: string
-    createdAt?: Date | string
-  }
-
-  export type CommentCreateOrConnectWithoutMovieInput = {
-    where: CommentWhereUniqueInput
-    create: XOR<CommentCreateWithoutMovieInput, CommentUncheckedCreateWithoutMovieInput>
-  }
-
-  export type CommentCreateManyMovieInputEnvelope = {
-    data: CommentCreateManyMovieInput | CommentCreateManyMovieInput[]
-  }
-
-  export type FavoriteUpsertWithWhereUniqueWithoutMovieInput = {
-    where: FavoriteWhereUniqueInput
-    update: XOR<FavoriteUpdateWithoutMovieInput, FavoriteUncheckedUpdateWithoutMovieInput>
-    create: XOR<FavoriteCreateWithoutMovieInput, FavoriteUncheckedCreateWithoutMovieInput>
-  }
-
-  export type FavoriteUpdateWithWhereUniqueWithoutMovieInput = {
-    where: FavoriteWhereUniqueInput
-    data: XOR<FavoriteUpdateWithoutMovieInput, FavoriteUncheckedUpdateWithoutMovieInput>
-  }
-
-  export type FavoriteUpdateManyWithWhereWithoutMovieInput = {
-    where: FavoriteScalarWhereInput
-    data: XOR<FavoriteUpdateManyMutationInput, FavoriteUncheckedUpdateManyWithoutMovieInput>
-  }
-
-  export type CommentUpsertWithWhereUniqueWithoutMovieInput = {
-    where: CommentWhereUniqueInput
-    update: XOR<CommentUpdateWithoutMovieInput, CommentUncheckedUpdateWithoutMovieInput>
-    create: XOR<CommentCreateWithoutMovieInput, CommentUncheckedCreateWithoutMovieInput>
-  }
-
-  export type CommentUpdateWithWhereUniqueWithoutMovieInput = {
-    where: CommentWhereUniqueInput
-    data: XOR<CommentUpdateWithoutMovieInput, CommentUncheckedUpdateWithoutMovieInput>
-  }
-
-  export type CommentUpdateManyWithWhereWithoutMovieInput = {
-    where: CommentScalarWhereInput
-    data: XOR<CommentUpdateManyMutationInput, CommentUncheckedUpdateManyWithoutMovieInput>
-  }
-
-  export type UserCreateWithoutFavoritesInput = {
-    id: string
-    name: string
-    email: string
-    emailVerified: boolean
-    image?: string | null
-    createdAt: Date | string
-    updatedAt: Date | string
-    sessions?: SessionCreateNestedManyWithoutUserInput
-    accounts?: AccountCreateNestedManyWithoutUserInput
-    comments?: CommentCreateNestedManyWithoutUserInput
-  }
-
-  export type UserUncheckedCreateWithoutFavoritesInput = {
-    id: string
-    name: string
-    email: string
-    emailVerified: boolean
-    image?: string | null
-    createdAt: Date | string
-    updatedAt: Date | string
-    sessions?: SessionUncheckedCreateNestedManyWithoutUserInput
-    accounts?: AccountUncheckedCreateNestedManyWithoutUserInput
-    comments?: CommentUncheckedCreateNestedManyWithoutUserInput
-  }
-
-  export type UserCreateOrConnectWithoutFavoritesInput = {
-    where: UserWhereUniqueInput
-    create: XOR<UserCreateWithoutFavoritesInput, UserUncheckedCreateWithoutFavoritesInput>
-  }
-
-  export type MovieCreateWithoutFavoritesInput = {
-    id: string
-    title: string
-    posterUrl?: string | null
-    comments?: CommentCreateNestedManyWithoutMovieInput
-  }
-
-  export type MovieUncheckedCreateWithoutFavoritesInput = {
-    id: string
-    title: string
-    posterUrl?: string | null
-    comments?: CommentUncheckedCreateNestedManyWithoutMovieInput
-  }
-
-  export type MovieCreateOrConnectWithoutFavoritesInput = {
-    where: MovieWhereUniqueInput
-    create: XOR<MovieCreateWithoutFavoritesInput, MovieUncheckedCreateWithoutFavoritesInput>
-  }
-
-  export type UserUpsertWithoutFavoritesInput = {
-    update: XOR<UserUpdateWithoutFavoritesInput, UserUncheckedUpdateWithoutFavoritesInput>
-    create: XOR<UserCreateWithoutFavoritesInput, UserUncheckedCreateWithoutFavoritesInput>
-    where?: UserWhereInput
-  }
-
-  export type UserUpdateToOneWithWhereWithoutFavoritesInput = {
-    where?: UserWhereInput
-    data: XOR<UserUpdateWithoutFavoritesInput, UserUncheckedUpdateWithoutFavoritesInput>
-  }
-
-  export type UserUpdateWithoutFavoritesInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    name?: StringFieldUpdateOperationsInput | string
-    email?: StringFieldUpdateOperationsInput | string
-    emailVerified?: BoolFieldUpdateOperationsInput | boolean
-    image?: NullableStringFieldUpdateOperationsInput | string | null
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    sessions?: SessionUpdateManyWithoutUserNestedInput
-    accounts?: AccountUpdateManyWithoutUserNestedInput
-    comments?: CommentUpdateManyWithoutUserNestedInput
-  }
-
-  export type UserUncheckedUpdateWithoutFavoritesInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    name?: StringFieldUpdateOperationsInput | string
-    email?: StringFieldUpdateOperationsInput | string
-    emailVerified?: BoolFieldUpdateOperationsInput | boolean
-    image?: NullableStringFieldUpdateOperationsInput | string | null
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    sessions?: SessionUncheckedUpdateManyWithoutUserNestedInput
-    accounts?: AccountUncheckedUpdateManyWithoutUserNestedInput
-    comments?: CommentUncheckedUpdateManyWithoutUserNestedInput
-  }
-
-  export type MovieUpsertWithoutFavoritesInput = {
-    update: XOR<MovieUpdateWithoutFavoritesInput, MovieUncheckedUpdateWithoutFavoritesInput>
-    create: XOR<MovieCreateWithoutFavoritesInput, MovieUncheckedCreateWithoutFavoritesInput>
-    where?: MovieWhereInput
-  }
-
-  export type MovieUpdateToOneWithWhereWithoutFavoritesInput = {
-    where?: MovieWhereInput
-    data: XOR<MovieUpdateWithoutFavoritesInput, MovieUncheckedUpdateWithoutFavoritesInput>
-  }
-
-  export type MovieUpdateWithoutFavoritesInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    title?: StringFieldUpdateOperationsInput | string
-    posterUrl?: NullableStringFieldUpdateOperationsInput | string | null
-    comments?: CommentUpdateManyWithoutMovieNestedInput
-  }
-
-  export type MovieUncheckedUpdateWithoutFavoritesInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    title?: StringFieldUpdateOperationsInput | string
-    posterUrl?: NullableStringFieldUpdateOperationsInput | string | null
-    comments?: CommentUncheckedUpdateManyWithoutMovieNestedInput
-  }
-
-  export type UserCreateWithoutCommentsInput = {
-    id: string
-    name: string
-    email: string
-    emailVerified: boolean
-    image?: string | null
-    createdAt: Date | string
-    updatedAt: Date | string
-    sessions?: SessionCreateNestedManyWithoutUserInput
-    accounts?: AccountCreateNestedManyWithoutUserInput
-    favorites?: FavoriteCreateNestedManyWithoutUserInput
-  }
-
-  export type UserUncheckedCreateWithoutCommentsInput = {
-    id: string
-    name: string
-    email: string
-    emailVerified: boolean
-    image?: string | null
-    createdAt: Date | string
-    updatedAt: Date | string
-    sessions?: SessionUncheckedCreateNestedManyWithoutUserInput
-    accounts?: AccountUncheckedCreateNestedManyWithoutUserInput
-    favorites?: FavoriteUncheckedCreateNestedManyWithoutUserInput
-  }
-
-  export type UserCreateOrConnectWithoutCommentsInput = {
-    where: UserWhereUniqueInput
-    create: XOR<UserCreateWithoutCommentsInput, UserUncheckedCreateWithoutCommentsInput>
-  }
-
-  export type MovieCreateWithoutCommentsInput = {
-    id: string
-    title: string
-    posterUrl?: string | null
-    favorites?: FavoriteCreateNestedManyWithoutMovieInput
-  }
-
-  export type MovieUncheckedCreateWithoutCommentsInput = {
-    id: string
-    title: string
-    posterUrl?: string | null
-    favorites?: FavoriteUncheckedCreateNestedManyWithoutMovieInput
-  }
-
-  export type MovieCreateOrConnectWithoutCommentsInput = {
-    where: MovieWhereUniqueInput
-    create: XOR<MovieCreateWithoutCommentsInput, MovieUncheckedCreateWithoutCommentsInput>
-  }
-
-  export type UserUpsertWithoutCommentsInput = {
-    update: XOR<UserUpdateWithoutCommentsInput, UserUncheckedUpdateWithoutCommentsInput>
-    create: XOR<UserCreateWithoutCommentsInput, UserUncheckedCreateWithoutCommentsInput>
-    where?: UserWhereInput
-  }
-
-  export type UserUpdateToOneWithWhereWithoutCommentsInput = {
-    where?: UserWhereInput
-    data: XOR<UserUpdateWithoutCommentsInput, UserUncheckedUpdateWithoutCommentsInput>
-  }
-
-  export type UserUpdateWithoutCommentsInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    name?: StringFieldUpdateOperationsInput | string
-    email?: StringFieldUpdateOperationsInput | string
-    emailVerified?: BoolFieldUpdateOperationsInput | boolean
-    image?: NullableStringFieldUpdateOperationsInput | string | null
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    sessions?: SessionUpdateManyWithoutUserNestedInput
-    accounts?: AccountUpdateManyWithoutUserNestedInput
-    favorites?: FavoriteUpdateManyWithoutUserNestedInput
-  }
-
-  export type UserUncheckedUpdateWithoutCommentsInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    name?: StringFieldUpdateOperationsInput | string
-    email?: StringFieldUpdateOperationsInput | string
-    emailVerified?: BoolFieldUpdateOperationsInput | boolean
-    image?: NullableStringFieldUpdateOperationsInput | string | null
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    sessions?: SessionUncheckedUpdateManyWithoutUserNestedInput
-    accounts?: AccountUncheckedUpdateManyWithoutUserNestedInput
-    favorites?: FavoriteUncheckedUpdateManyWithoutUserNestedInput
-  }
-
-  export type MovieUpsertWithoutCommentsInput = {
-    update: XOR<MovieUpdateWithoutCommentsInput, MovieUncheckedUpdateWithoutCommentsInput>
-    create: XOR<MovieCreateWithoutCommentsInput, MovieUncheckedCreateWithoutCommentsInput>
-    where?: MovieWhereInput
-  }
-
-  export type MovieUpdateToOneWithWhereWithoutCommentsInput = {
-    where?: MovieWhereInput
-    data: XOR<MovieUpdateWithoutCommentsInput, MovieUncheckedUpdateWithoutCommentsInput>
-  }
-
-  export type MovieUpdateWithoutCommentsInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    title?: StringFieldUpdateOperationsInput | string
-    posterUrl?: NullableStringFieldUpdateOperationsInput | string | null
-    favorites?: FavoriteUpdateManyWithoutMovieNestedInput
-  }
-
-  export type MovieUncheckedUpdateWithoutCommentsInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    title?: StringFieldUpdateOperationsInput | string
-    posterUrl?: NullableStringFieldUpdateOperationsInput | string | null
-    favorites?: FavoriteUncheckedUpdateManyWithoutMovieNestedInput
   }
 
   export type SessionCreateManyUserInput = {
@@ -11755,18 +7523,6 @@ export namespace Prisma {
     password?: string | null
     createdAt: Date | string
     updatedAt: Date | string
-  }
-
-  export type FavoriteCreateManyUserInput = {
-    id?: string
-    movieId: string
-  }
-
-  export type CommentCreateManyUserInput = {
-    id?: string
-    text: string
-    movieId: string
-    createdAt?: Date | string
   }
 
   export type SessionUpdateWithoutUserInput = {
@@ -11842,90 +7598,6 @@ export namespace Prisma {
     password?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-  }
-
-  export type FavoriteUpdateWithoutUserInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    movie?: MovieUpdateOneRequiredWithoutFavoritesNestedInput
-  }
-
-  export type FavoriteUncheckedUpdateWithoutUserInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    movieId?: StringFieldUpdateOperationsInput | string
-  }
-
-  export type FavoriteUncheckedUpdateManyWithoutUserInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    movieId?: StringFieldUpdateOperationsInput | string
-  }
-
-  export type CommentUpdateWithoutUserInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    text?: StringFieldUpdateOperationsInput | string
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    movie?: MovieUpdateOneRequiredWithoutCommentsNestedInput
-  }
-
-  export type CommentUncheckedUpdateWithoutUserInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    text?: StringFieldUpdateOperationsInput | string
-    movieId?: StringFieldUpdateOperationsInput | string
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-  }
-
-  export type CommentUncheckedUpdateManyWithoutUserInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    text?: StringFieldUpdateOperationsInput | string
-    movieId?: StringFieldUpdateOperationsInput | string
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-  }
-
-  export type FavoriteCreateManyMovieInput = {
-    id?: string
-    userId: string
-  }
-
-  export type CommentCreateManyMovieInput = {
-    id?: string
-    text: string
-    userId: string
-    createdAt?: Date | string
-  }
-
-  export type FavoriteUpdateWithoutMovieInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    user?: UserUpdateOneRequiredWithoutFavoritesNestedInput
-  }
-
-  export type FavoriteUncheckedUpdateWithoutMovieInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    userId?: StringFieldUpdateOperationsInput | string
-  }
-
-  export type FavoriteUncheckedUpdateManyWithoutMovieInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    userId?: StringFieldUpdateOperationsInput | string
-  }
-
-  export type CommentUpdateWithoutMovieInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    text?: StringFieldUpdateOperationsInput | string
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    user?: UserUpdateOneRequiredWithoutCommentsNestedInput
-  }
-
-  export type CommentUncheckedUpdateWithoutMovieInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    text?: StringFieldUpdateOperationsInput | string
-    userId?: StringFieldUpdateOperationsInput | string
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-  }
-
-  export type CommentUncheckedUpdateManyWithoutMovieInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    text?: StringFieldUpdateOperationsInput | string
-    userId?: StringFieldUpdateOperationsInput | string
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
 
